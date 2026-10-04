@@ -1,0 +1,1865 @@
+{
+  "analyzedFiles" : [
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/CapeloApp.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/ContentView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/API.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/DeviceId.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/GameLanguage.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/GameViewModel.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/LetterGenerator.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/Strings.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/Wiktionary.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/WordValidator.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Models/GridEngine.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Models/ScoreEntry.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Models/Tile.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GridView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/LeaderboardView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/Palette.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/PaletteStore.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/ScoreView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/SettingsView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/SplashView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/TileView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/WordListView.swift"
+  ],
+  "diagnostics" : [
+    {
+      "column" : 25,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 42,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 40,
+          "text" : "                if viewModel.isGameOver {"
+        },
+        {
+          "line" : 41,
+          "text" : "                    Text(Strings.get(\"gameOver\", language: viewModel.language))"
+        },
+        {
+          "line" : 42,
+          "text" : "                        .font(.system(size: 44, weight: .heavy))"
+        },
+        {
+          "line" : 43,
+          "text" : "                        .foregroundStyle(textColor)"
+        },
+        {
+          "line" : 44,
+          "text" : "                        .transition(.blurReplace)"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 44, weight: .heavy))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 25,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 47,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 45,
+          "text" : "                } else if viewModel.isPaused {"
+        },
+        {
+          "line" : 46,
+          "text" : "                    Text(Strings.get(\"paused\", language: viewModel.language))"
+        },
+        {
+          "line" : 47,
+          "text" : "                        .font(.system(size: 44, weight: .heavy))"
+        },
+        {
+          "line" : 48,
+          "text" : "                        .foregroundStyle(textColor)"
+        },
+        {
+          "line" : 49,
+          "text" : "                        .transition(.blurReplace)"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 44, weight: .heavy))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 25,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 52,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 50,
+          "text" : "                } else if !viewModel.currentWord.isEmpty {"
+        },
+        {
+          "line" : 51,
+          "text" : "                    Text(viewModel.currentWord)"
+        },
+        {
+          "line" : 52,
+          "text" : "                        .font(.system(size: min(44, max(24, 44 - CGFloat(max(0, viewModel.currentWord.count - 9)) * 2)), weight: .heavy))"
+        },
+        {
+          "line" : 53,
+          "text" : "                        .lineLimit(1)"
+        },
+        {
+          "line" : 54,
+          "text" : "                        .minimumScaleFactor(0.6)"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: min(44, max(24, 44 - CGFloat(max(0, viewModel.currentWord.count - 9)) * 2)), weight: .heavy))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 25,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 66,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 64,
+          "text" : "                } else if !viewModel.bonusText.isEmpty {"
+        },
+        {
+          "line" : 65,
+          "text" : "                    Text(viewModel.bonusText)"
+        },
+        {
+          "line" : 66,
+          "text" : "                        .font(.system(size: 44, weight: .heavy))"
+        },
+        {
+          "line" : 67,
+          "text" : "                        .foregroundStyle(palette.orangeRed)"
+        },
+        {
+          "line" : 68,
+          "text" : "                        .keyframeAnimator("
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 44, weight: .heavy))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 17,
+      "description" : "State-dependent color may need a text, shape, or icon alternative",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 114,
+      "rationale" : "Color alone may not communicate state to users with color-vision or other visual impairments.",
+      "references" : [
+        {
+          "criterion" : "Color",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/color"
+        },
+        {
+          "criterion" : "1.4.1 Use of Color",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#use-of-color"
+        }
+      ],
+      "ruleIdentifier" : "SAC005",
+      "severity" : "low",
+      "sourceContext" : [
+        {
+          "line" : 112,
+          "text" : "            // Timer bar"
+        },
+        {
+          "line" : 113,
+          "text" : "            RoundedRectangle(cornerRadius: 3)"
+        },
+        {
+          "line" : 114,
+          "text" : "                .fill(isUrgent && !viewModel.isPaused ? palette.orangeRed.opacity(0.15) : textColor.opacity(0.15))"
+        },
+        {
+          "line" : 115,
+          "text" : "                .frame(height: 6)"
+        },
+        {
+          "line" : 116,
+          "text" : "                .overlay(alignment: .leading) {"
+        }
+      ],
+      "sourceExcerpt" : ".fill(isUrgent && !viewModel.isPaused ? palette.orangeRed.opacity(0.15) : textColor.opacity(0.15))",
+      "suggestion" : "Add a state-dependent text, symbol, shape, or accessibility value in addition to the color change.",
+      "title" : "Information conveyed by color"
+    },
+    {
+      "column" : 29,
+      "description" : "State-dependent color may need a text, shape, or icon alternative",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 119,
+      "rationale" : "Color alone may not communicate state to users with color-vision or other visual impairments.",
+      "references" : [
+        {
+          "criterion" : "Color",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/color"
+        },
+        {
+          "criterion" : "1.4.1 Use of Color",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#use-of-color"
+        }
+      ],
+      "ruleIdentifier" : "SAC005",
+      "severity" : "low",
+      "sourceContext" : [
+        {
+          "line" : 117,
+          "text" : "                    GeometryReader { barGeo in"
+        },
+        {
+          "line" : 118,
+          "text" : "                        RoundedRectangle(cornerRadius: 3)"
+        },
+        {
+          "line" : 119,
+          "text" : "                            .fill(isUrgent && !viewModel.isPaused ? palette.orangeRed : textColor)"
+        },
+        {
+          "line" : 120,
+          "text" : "                            .frame(width: barGeo.size.width * (barFillAnimating ? min(viewModel.timeRemaining / 90, 1.0) : 0))"
+        },
+        {
+          "line" : 121,
+          "text" : "                    }"
+        }
+      ],
+      "sourceExcerpt" : ".fill(isUrgent && !viewModel.isPaused ? palette.orangeRed : textColor)",
+      "suggestion" : "Add a state-dependent text, symbol, shape, or accessibility value in addition to the color change.",
+      "title" : "Information conveyed by color"
+    },
+    {
+      "column" : 17,
+      "description" : "Gesture-only interaction may need an accessible control role or action",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 152,
+      "rationale" : "A custom gesture without an accessible equivalent can make the action unavailable to assistive technology users.",
+      "references" : [
+        {
+          "criterion" : "Accessible controls",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/documentation/swiftui/accessible-controls"
+        },
+        {
+          "criterion" : "2.1.1 Keyboard",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#keyboard"
+        },
+        {
+          "criterion" : "4.1.2 Name, Role, Value",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#name-role-value"
+        }
+      ],
+      "ruleIdentifier" : "SAC008",
+      "severity" : "high",
+      "sourceContext" : [
+        {
+          "line" : 150,
+          "text" : "                .padding(.vertical, 12)"
+        },
+        {
+          "line" : 151,
+          "text" : "                .contentShape(Rectangle())"
+        },
+        {
+          "line" : 152,
+          "text" : "                .onTapGesture {"
+        },
+        {
+          "line" : 153,
+          "text" : "                    if viewModel.hasStarted && !viewModel.isGameOver {"
+        },
+        {
+          "line" : 154,
+          "text" : "                        viewModel.togglePause()"
+        }
+      ],
+      "sourceExcerpt" : ".onTapGesture {",
+      "suggestion" : "Prefer a standard control or provide an accessibility action, representation, or appropriate interactive trait.",
+      "title" : "Gesture-only interaction"
+    },
+    {
+      "column" : 17,
+      "description" : "Button with image-only or empty content should provide an accessibility label",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 170,
+      "rationale" : "An unlabeled control can prevent VoiceOver users from understanding its purpose.",
+      "references" : [
+        {
+          "criterion" : "accessibilityLabel",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/documentation/swiftui/view/accessibilitylabel(_:)"
+        },
+        {
+          "criterion" : "1.1.1 Non-text Content",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#non-text-content"
+        },
+        {
+          "criterion" : "4.1.2 Name, Role, Value",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#name-role-value"
+        }
+      ],
+      "ruleIdentifier" : "SAC001",
+      "severity" : "high",
+      "sourceContext" : [
+        {
+          "line" : 168,
+          "text" : "            ZStack {"
+        },
+        {
+          "line" : 169,
+          "text" : "                // Center: Main action (always truly centered)"
+        },
+        {
+          "line" : 170,
+          "text" : "                Button {"
+        },
+        {
+          "line" : 171,
+          "text" : "                    if viewModel.isGameOver {"
+        },
+        {
+          "line" : 172,
+          "text" : "                        withAnimation { viewModel.setupGrid() }"
+        }
+      ],
+      "sourceExcerpt" : "Button {",
+      "suggestion" : "Add an accessibilityLabel that describes the action, or use a control initializer with a meaningful visible title.",
+      "title" : "Missing accessibility label"
+    },
+    {
+      "column" : 25,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 180,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 178,
+          "text" : "                } label: {"
+        },
+        {
+          "line" : 179,
+          "text" : "                    Image(systemName: mainActionIcon)"
+        },
+        {
+          "line" : 180,
+          "text" : "                        .font(.system(size: 32))"
+        },
+        {
+          "line" : 181,
+          "text" : "                        .foregroundStyle(textColor)"
+        },
+        {
+          "line" : 182,
+          "text" : "                        .frame(width: 60, height: 60)"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 32))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 25,
+      "description" : "Button with image-only or empty content should provide an accessibility label",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 191,
+      "rationale" : "An unlabeled control can prevent VoiceOver users from understanding its purpose.",
+      "references" : [
+        {
+          "criterion" : "accessibilityLabel",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/documentation/swiftui/view/accessibilitylabel(_:)"
+        },
+        {
+          "criterion" : "1.1.1 Non-text Content",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#non-text-content"
+        },
+        {
+          "criterion" : "4.1.2 Name, Role, Value",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#name-role-value"
+        }
+      ],
+      "ruleIdentifier" : "SAC001",
+      "severity" : "high",
+      "sourceContext" : [
+        {
+          "line" : 189,
+          "text" : "                    // Left: Word list (during/after game) or Language picker (before game)"
+        },
+        {
+          "line" : 190,
+          "text" : "                    if viewModel.hasStarted || viewModel.isGameOver {"
+        },
+        {
+          "line" : 191,
+          "text" : "                        Button {"
+        },
+        {
+          "line" : 192,
+          "text" : "                            showWordList = true"
+        },
+        {
+          "line" : 193,
+          "text" : "                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {"
+        }
+      ],
+      "sourceExcerpt" : "Button {",
+      "suggestion" : "Add an accessibilityLabel that describes the action, or use a control initializer with a meaningful visible title.",
+      "title" : "Missing accessibility label"
+    },
+    {
+      "column" : 33,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 216,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 214,
+          "text" : "                        } label: {"
+        },
+        {
+          "line" : 215,
+          "text" : "                            Text(viewModel.language.shortCode)"
+        },
+        {
+          "line" : 216,
+          "text" : "                                .font(.system(size: 14, weight: .semibold))"
+        },
+        {
+          "line" : 217,
+          "text" : "                                .foregroundStyle(textColor)"
+        },
+        {
+          "line" : 218,
+          "text" : "                                .padding(.horizontal, 10)"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 14, weight: .semibold))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 25,
+      "description" : "Button with image-only or empty content should provide an accessibility label",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 235,
+      "rationale" : "An unlabeled control can prevent VoiceOver users from understanding its purpose.",
+      "references" : [
+        {
+          "criterion" : "accessibilityLabel",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/documentation/swiftui/view/accessibilitylabel(_:)"
+        },
+        {
+          "criterion" : "1.1.1 Non-text Content",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#non-text-content"
+        },
+        {
+          "criterion" : "4.1.2 Name, Role, Value",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#name-role-value"
+        }
+      ],
+      "ruleIdentifier" : "SAC001",
+      "severity" : "high",
+      "sourceContext" : [
+        {
+          "line" : 233,
+          "text" : "                    // Right: contextual single icon"
+        },
+        {
+          "line" : 234,
+          "text" : "                    if viewModel.hasStarted && !viewModel.isGameOver && !viewModel.isPaused {"
+        },
+        {
+          "line" : 235,
+          "text" : "                        Button { showRestartConfirm = true } label: {"
+        },
+        {
+          "line" : 236,
+          "text" : "                            Image(systemName: \"arrow.counterclockwise\")"
+        },
+        {
+          "line" : 237,
+          "text" : "                                .font(.title2)"
+        }
+      ],
+      "sourceExcerpt" : "Button { showRestartConfirm = true } label: {",
+      "suggestion" : "Add an accessibilityLabel that describes the action, or use a control initializer with a meaningful visible title.",
+      "title" : "Missing accessibility label"
+    },
+    {
+      "column" : 25,
+      "description" : "Button with image-only or empty content should provide an accessibility label",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 243,
+      "rationale" : "An unlabeled control can prevent VoiceOver users from understanding its purpose.",
+      "references" : [
+        {
+          "criterion" : "accessibilityLabel",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/documentation/swiftui/view/accessibilitylabel(_:)"
+        },
+        {
+          "criterion" : "1.1.1 Non-text Content",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#non-text-content"
+        },
+        {
+          "criterion" : "4.1.2 Name, Role, Value",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#name-role-value"
+        }
+      ],
+      "ruleIdentifier" : "SAC001",
+      "severity" : "high",
+      "sourceContext" : [
+        {
+          "line" : 241,
+          "text" : "                        .transition(.opacity)"
+        },
+        {
+          "line" : 242,
+          "text" : "                    } else {"
+        },
+        {
+          "line" : 243,
+          "text" : "                        Button {"
+        },
+        {
+          "line" : 244,
+          "text" : "                            leaderboardStartTab = viewModel.playerName.isEmpty ? 1 : 0"
+        },
+        {
+          "line" : 245,
+          "text" : "                            showLeaderboard = true"
+        }
+      ],
+      "sourceExcerpt" : "Button {",
+      "suggestion" : "Add an accessibilityLabel that describes the action, or use a control initializer with a meaningful visible title.",
+      "title" : "Missing accessibility label"
+    },
+    {
+      "column" : 21,
+      "description" : "Gesture-only interaction may need an accessible control role or action",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 287,
+      "rationale" : "A custom gesture without an accessible equivalent can make the action unavailable to assistive technology users.",
+      "references" : [
+        {
+          "criterion" : "Accessible controls",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/documentation/swiftui/accessible-controls"
+        },
+        {
+          "criterion" : "2.1.1 Keyboard",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#keyboard"
+        },
+        {
+          "criterion" : "4.1.2 Name, Role, Value",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#name-role-value"
+        }
+      ],
+      "ruleIdentifier" : "SAC008",
+      "severity" : "high",
+      "sourceContext" : [
+        {
+          "line" : 285,
+          "text" : "                Color.black.opacity(0.4)"
+        },
+        {
+          "line" : 286,
+          "text" : "                    .ignoresSafeArea()"
+        },
+        {
+          "line" : 287,
+          "text" : "                    .onTapGesture { withAnimation { showRestartConfirm = false } }"
+        },
+        {
+          "line" : 288,
+          "text" : "                VStack(spacing: 20) {"
+        },
+        {
+          "line" : 289,
+          "text" : "                    Text(Strings.get(\"newGame\", language: viewModel.language))"
+        }
+      ],
+      "sourceExcerpt" : ".onTapGesture { withAnimation { showRestartConfirm = false } }",
+      "suggestion" : "Prefer a standard control or provide an accessibility action, representation, or appropriate interactive trait.",
+      "title" : "Gesture-only interaction"
+    },
+    {
+      "column" : 21,
+      "description" : "State-dependent color may need a text, shape, or icon alternative",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+      "line" : 373,
+      "rationale" : "Color alone may not communicate state to users with color-vision or other visual impairments.",
+      "references" : [
+        {
+          "criterion" : "Color",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/color"
+        },
+        {
+          "criterion" : "1.4.1 Use of Color",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#use-of-color"
+        }
+      ],
+      "ruleIdentifier" : "SAC005",
+      "severity" : "low",
+      "sourceContext" : [
+        {
+          "line" : 371,
+          "text" : "            .background("
+        },
+        {
+          "line" : 372,
+          "text" : "                Circle()"
+        },
+        {
+          "line" : 373,
+          "text" : "                    .fill(Color.gray.opacity(configuration.isPressed ? 0.3 : 0))"
+        },
+        {
+          "line" : 374,
+          "text" : "                    .frame(width: 56, height: 56)"
+        },
+        {
+          "line" : 375,
+          "text" : "            )"
+        }
+      ],
+      "sourceExcerpt" : ".fill(Color.gray.opacity(configuration.isPressed ? 0.3 : 0))",
+      "suggestion" : "Add a state-dependent text, symbol, shape, or accessibility value in addition to the color change.",
+      "title" : "Information conveyed by color"
+    },
+    {
+      "column" : 21,
+      "description" : "Button with image-only or empty content should provide an accessibility label",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/LeaderboardView.swift",
+      "line" : 53,
+      "rationale" : "An unlabeled control can prevent VoiceOver users from understanding its purpose.",
+      "references" : [
+        {
+          "criterion" : "accessibilityLabel",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/documentation/swiftui/view/accessibilitylabel(_:)"
+        },
+        {
+          "criterion" : "1.1.1 Non-text Content",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#non-text-content"
+        },
+        {
+          "criterion" : "4.1.2 Name, Role, Value",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#name-role-value"
+        }
+      ],
+      "ruleIdentifier" : "SAC001",
+      "severity" : "high",
+      "sourceContext" : [
+        {
+          "line" : 51,
+          "text" : "            HStack(spacing: 32) {"
+        },
+        {
+          "line" : 52,
+          "text" : "                ForEach(0..<3) { i in"
+        },
+        {
+          "line" : 53,
+          "text" : "                    Button {"
+        },
+        {
+          "line" : 54,
+          "text" : "                        withAnimation { selectedTab = i }"
+        },
+        {
+          "line" : 55,
+          "text" : "                    } label: {"
+        }
+      ],
+      "sourceExcerpt" : "Button {",
+      "suggestion" : "Add an accessibilityLabel that describes the action, or use a control initializer with a meaningful visible title.",
+      "title" : "Missing accessibility label"
+    },
+    {
+      "column" : 29,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/LeaderboardView.swift",
+      "line" : 57,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 55,
+          "text" : "                    } label: {"
+        },
+        {
+          "line" : 56,
+          "text" : "                        Image(systemName: tabIcons[i][selectedTab == i ? 1 : 0])"
+        },
+        {
+          "line" : 57,
+          "text" : "                            .font(.system(size: i == 0 ? 24 : 26))"
+        },
+        {
+          "line" : 58,
+          "text" : "                            .foregroundStyle(textColor.opacity(selectedTab == i ? 1 : 0.2))"
+        },
+        {
+          "line" : 59,
+          "text" : "                            .animation(.easeInOut(duration: 0.2), value: selectedTab)"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: i == 0 ? 24 : 26))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 29,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/LeaderboardView.swift",
+      "line" : 149,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 147,
+          "text" : "                    .overlay("
+        },
+        {
+          "line" : 148,
+          "text" : "                        Text(\"\\(rank)\")"
+        },
+        {
+          "line" : 149,
+          "text" : "                            .font(.system(size: 16, weight: .bold))"
+        },
+        {
+          "line" : 150,
+          "text" : "                            .monospacedDigit()"
+        },
+        {
+          "line" : 151,
+          "text" : "                            .foregroundStyle(isHighlighted ? Palette.cream : (hasLink ? Palette.cream : textColor.opacity(0.5)))"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 16, weight: .bold))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 25,
+      "description" : "Image should be labeled or explicitly hidden from accessibility",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/LeaderboardView.swift",
+      "line" : 157,
+      "rationale" : "An image needs a clear semantic intent so assistive technologies either describe it or ignore it as decoration.",
+      "references" : [
+        {
+          "criterion" : "VoiceOver",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/voiceover"
+        },
+        {
+          "criterion" : "1.1.1 Non-text Content",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#non-text-content"
+        }
+      ],
+      "ruleIdentifier" : "SAC002",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 155,
+          "text" : "                    Text(entry.playerName)"
+        },
+        {
+          "line" : 156,
+          "text" : "                    if hasLink {"
+        },
+        {
+          "line" : 157,
+          "text" : "                        Image(systemName: \"arrow.up.right\")"
+        },
+        {
+          "line" : 158,
+          "text" : "                            .font(.caption2)"
+        },
+        {
+          "line" : 159,
+          "text" : "                    }"
+        }
+      ],
+      "sourceExcerpt" : "Image(systemName: \"arrow.up.right\")",
+      "suggestion" : "Provide a meaningful accessibilityLabel, use accessibilityRepresentation, or mark a decorative image with accessibilityHidden(true).",
+      "title" : "Image accessibility treatment"
+    },
+    {
+      "column" : 37,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/LeaderboardView.swift",
+      "line" : 287,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 285,
+          "text" : "                            HStack(spacing: 6) {"
+        },
+        {
+          "line" : 286,
+          "text" : "                                Image(systemName: mode == .dark ? \"moon.fill\" : \"sun.max.fill\")"
+        },
+        {
+          "line" : 287,
+          "text" : "                                    .font(.system(size: 12, weight: .semibold))"
+        },
+        {
+          "line" : 288,
+          "text" : "                                Text(mode.label)"
+        },
+        {
+          "line" : 289,
+          "text" : "                                    .font(.subheadline.weight(.medium))"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 12, weight: .semibold))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 21,
+      "description" : "Button with image-only or empty content should provide an accessibility label",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/LeaderboardView.swift",
+      "line" : 310,
+      "rationale" : "An unlabeled control can prevent VoiceOver users from understanding its purpose.",
+      "references" : [
+        {
+          "criterion" : "accessibilityLabel",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/documentation/swiftui/view/accessibilitylabel(_:)"
+        },
+        {
+          "criterion" : "1.1.1 Non-text Content",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#non-text-content"
+        },
+        {
+          "criterion" : "4.1.2 Name, Role, Value",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#name-role-value"
+        }
+      ],
+      "ruleIdentifier" : "SAC001",
+      "severity" : "high",
+      "sourceContext" : [
+        {
+          "line" : 308,
+          "text" : ""
+        },
+        {
+          "line" : 309,
+          "text" : "                if palette.isCustomized {"
+        },
+        {
+          "line" : 310,
+          "text" : "                    Button {"
+        },
+        {
+          "line" : 311,
+          "text" : "                        withAnimation { palette.reset() }"
+        },
+        {
+          "line" : 312,
+          "text" : "                    } label: {"
+        }
+      ],
+      "sourceExcerpt" : "Button {",
+      "suggestion" : "Add an accessibilityLabel that describes the action, or use a control initializer with a meaningful visible title.",
+      "title" : "Missing accessibility label"
+    },
+    {
+      "column" : 29,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/LeaderboardView.swift",
+      "line" : 314,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 312,
+          "text" : "                    } label: {"
+        },
+        {
+          "line" : 313,
+          "text" : "                        Image(systemName: \"arrow.counterclockwise\")"
+        },
+        {
+          "line" : 314,
+          "text" : "                            .font(.system(size: 16, weight: .semibold))"
+        },
+        {
+          "line" : 315,
+          "text" : "                            .foregroundStyle(textColor.opacity(0.35))"
+        },
+        {
+          "line" : 316,
+          "text" : "                    }"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 16, weight: .semibold))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 21,
+      "description" : "Image should be labeled or explicitly hidden from accessibility",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/LeaderboardView.swift",
+      "line" : 364,
+      "rationale" : "An image needs a clear semantic intent so assistive technologies either describe it or ignore it as decoration.",
+      "references" : [
+        {
+          "criterion" : "VoiceOver",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/voiceover"
+        },
+        {
+          "criterion" : "1.1.1 Non-text Content",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#non-text-content"
+        }
+      ],
+      "ruleIdentifier" : "SAC002",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 362,
+          "text" : "                .frame(width: 36, height: 36)"
+        },
+        {
+          "line" : 363,
+          "text" : "                .overlay("
+        },
+        {
+          "line" : 364,
+          "text" : "                    Image(systemName: status == .error ? \"xmark\" : icon)"
+        },
+        {
+          "line" : 365,
+          "text" : "                        .font(.system(size: 14, weight: .semibold))"
+        },
+        {
+          "line" : 366,
+          "text" : "                        .foregroundStyle(iconColor)"
+        }
+      ],
+      "sourceExcerpt" : "Image(systemName: status == .error ? \"xmark\" : icon)",
+      "suggestion" : "Provide a meaningful accessibilityLabel, use accessibilityRepresentation, or mark a decorative image with accessibilityHidden(true).",
+      "title" : "Image accessibility treatment"
+    },
+    {
+      "column" : 25,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/LeaderboardView.swift",
+      "line" : 365,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 363,
+          "text" : "                .overlay("
+        },
+        {
+          "line" : 364,
+          "text" : "                    Image(systemName: status == .error ? \"xmark\" : icon)"
+        },
+        {
+          "line" : 365,
+          "text" : "                        .font(.system(size: 14, weight: .semibold))"
+        },
+        {
+          "line" : 366,
+          "text" : "                        .foregroundStyle(iconColor)"
+        },
+        {
+          "line" : 367,
+          "text" : "                )"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 14, weight: .semibold))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 29,
+      "description" : "Image should be labeled or explicitly hidden from accessibility",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/LeaderboardView.swift",
+      "line" : 423,
+      "rationale" : "An image needs a clear semantic intent so assistive technologies either describe it or ignore it as decoration.",
+      "references" : [
+        {
+          "criterion" : "VoiceOver",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/voiceover"
+        },
+        {
+          "criterion" : "1.1.1 Non-text Content",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#non-text-content"
+        }
+      ],
+      "ruleIdentifier" : "SAC002",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 421,
+          "text" : "                            Text(\"Follow me on X\")"
+        },
+        {
+          "line" : 422,
+          "text" : "                                .font(.subheadline.weight(.medium))"
+        },
+        {
+          "line" : 423,
+          "text" : "                            Image(systemName: \"arrow.up.right\")"
+        },
+        {
+          "line" : 424,
+          "text" : "                                .font(.caption2.weight(.semibold))"
+        },
+        {
+          "line" : 425,
+          "text" : "                        }"
+        }
+      ],
+      "sourceExcerpt" : "Image(systemName: \"arrow.up.right\")",
+      "suggestion" : "Provide a meaningful accessibilityLabel, use accessibilityRepresentation, or mark a decorative image with accessibilityHidden(true).",
+      "title" : "Image accessibility treatment"
+    },
+    {
+      "column" : 37,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/SettingsView.swift",
+      "line" : 30,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 28,
+          "text" : "                            HStack(spacing: 6) {"
+        },
+        {
+          "line" : 29,
+          "text" : "                                Image(systemName: mode == .dark ? \"moon.fill\" : \"sun.max.fill\")"
+        },
+        {
+          "line" : 30,
+          "text" : "                                    .font(.system(size: 12, weight: .semibold))"
+        },
+        {
+          "line" : 31,
+          "text" : "                                Text(mode.label)"
+        },
+        {
+          "line" : 32,
+          "text" : "                                    .font(.subheadline.weight(.medium))"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 12, weight: .semibold))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 41,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/SettingsView.swift",
+      "line" : 64,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 62,
+          "text" : "                                .overlay("
+        },
+        {
+          "line" : 63,
+          "text" : "                                    Image(systemName: \"arrow.counterclockwise\")"
+        },
+        {
+          "line" : 64,
+          "text" : "                                        .font(.system(size: 14, weight: .semibold))"
+        },
+        {
+          "line" : 65,
+          "text" : "                                        .foregroundStyle(textColor.opacity(0.5))"
+        },
+        {
+          "line" : 66,
+          "text" : "                                )"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 14, weight: .semibold))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 17,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/SplashView.swift",
+      "line" : 60,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 58,
+          "text" : "        VStack(spacing: 48) {"
+        },
+        {
+          "line" : 59,
+          "text" : "            Text(\"Capelo\")"
+        },
+        {
+          "line" : 60,
+          "text" : "                .font(.system(size: 42, weight: .heavy))"
+        },
+        {
+          "line" : 61,
+          "text" : "                .foregroundStyle(textColor)"
+        },
+        {
+          "line" : 62,
+          "text" : "                .offset(y: titleOffset)"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 42, weight: .heavy))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 17,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/SplashView.swift",
+      "line" : 68,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 66,
+          "text" : ""
+        },
+        {
+          "line" : 67,
+          "text" : "            Text(Strings.get(\"swipeToPlay\", language: language))"
+        },
+        {
+          "line" : 68,
+          "text" : "                .font(.system(size: 17, weight: .semibold, design: .rounded))"
+        },
+        {
+          "line" : 69,
+          "text" : "                .foregroundStyle(textColor.opacity(0.6))"
+        },
+        {
+          "line" : 70,
+          "text" : "                .opacity(hintOpacity)"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 17, weight: .semibold, design: .rounded))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 17,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/SplashView.swift",
+      "line" : 328,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 326,
+          "text" : "                .animation(.easeOut(duration: 0.15), value: bg)"
+        },
+        {
+          "line" : 327,
+          "text" : "            Text(String(character))"
+        },
+        {
+          "line" : 328,
+          "text" : "                .font(.system(size: size * 0.45, weight: .bold, design: .rounded))"
+        },
+        {
+          "line" : 329,
+          "text" : "                .foregroundStyle(fg)"
+        },
+        {
+          "line" : 330,
+          "text" : "                .animation(.easeOut(duration: 0.15), value: fg)"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: size * 0.45, weight: .bold, design: .rounded))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 21,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/TileView.swift",
+      "line" : 61,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 59,
+          "text" : "            } else {"
+        },
+        {
+          "line" : 60,
+          "text" : "                Text(String(tile.character))"
+        },
+        {
+          "line" : 61,
+          "text" : "                    .font(.system(size: size * 0.45, weight: .bold, design: .rounded))"
+        },
+        {
+          "line" : 62,
+          "text" : "                    .foregroundStyle(tileText)"
+        },
+        {
+          "line" : 63,
+          "text" : "            }"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: size * 0.45, weight: .bold, design: .rounded))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 21,
+      "description" : "Image should be labeled or explicitly hidden from accessibility",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/WordListView.swift",
+      "line" : 26,
+      "rationale" : "An image needs a clear semantic intent so assistive technologies either describe it or ignore it as decoration.",
+      "references" : [
+        {
+          "criterion" : "VoiceOver",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/voiceover"
+        },
+        {
+          "criterion" : "1.1.1 Non-text Content",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#non-text-content"
+        }
+      ],
+      "ruleIdentifier" : "SAC002",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 24,
+          "text" : "                VStack {"
+        },
+        {
+          "line" : 25,
+          "text" : "                    Spacer()"
+        },
+        {
+          "line" : 26,
+          "text" : "                    Image(systemName: \"book\")"
+        },
+        {
+          "line" : 27,
+          "text" : "                        .font(.system(size: 48))"
+        },
+        {
+          "line" : 28,
+          "text" : "                        .foregroundStyle(textColor.opacity(0.2))"
+        }
+      ],
+      "sourceExcerpt" : "Image(systemName: \"book\")",
+      "suggestion" : "Provide a meaningful accessibilityLabel, use accessibilityRepresentation, or mark a decorative image with accessibilityHidden(true).",
+      "title" : "Image accessibility treatment"
+    },
+    {
+      "column" : 25,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/WordListView.swift",
+      "line" : 27,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 25,
+          "text" : "                    Spacer()"
+        },
+        {
+          "line" : 26,
+          "text" : "                    Image(systemName: \"book\")"
+        },
+        {
+          "line" : 27,
+          "text" : "                        .font(.system(size: 48))"
+        },
+        {
+          "line" : 28,
+          "text" : "                        .foregroundStyle(textColor.opacity(0.2))"
+        },
+        {
+          "line" : 29,
+          "text" : "                    Spacer()"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 48))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 29,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/WordListView.swift",
+      "line" : 36,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 34,
+          "text" : "                    VStack(spacing: 6) {"
+        },
+        {
+          "line" : 35,
+          "text" : "                        Text(\"\\(uniqueWords.count) \\(Strings.get(uniqueWords.count == 1 ? \"word\" : \"words\", language: language))\")"
+        },
+        {
+          "line" : 36,
+          "text" : "                            .font(.system(size: 32, weight: .heavy))"
+        },
+        {
+          "line" : 37,
+          "text" : "                            .foregroundStyle(textColor)"
+        },
+        {
+          "line" : 38,
+          "text" : ""
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 32, weight: .heavy))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 29,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/WordListView.swift",
+      "line" : 40,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 38,
+          "text" : ""
+        },
+        {
+          "line" : 39,
+          "text" : "                        Text(Strings.get(\"tapToDefine\", language: language))"
+        },
+        {
+          "line" : 40,
+          "text" : "                            .font(.system(size: 14, weight: .medium))"
+        },
+        {
+          "line" : 41,
+          "text" : "                            .foregroundStyle(textColor.opacity(0.35))"
+        },
+        {
+          "line" : 42,
+          "text" : "                    }"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 14, weight: .medium))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 21,
+      "description" : "Gesture-only interaction may need an accessible control role or action",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/WordListView.swift",
+      "line" : 77,
+      "rationale" : "A custom gesture without an accessible equivalent can make the action unavailable to assistive technology users.",
+      "references" : [
+        {
+          "criterion" : "Accessible controls",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/documentation/swiftui/accessible-controls"
+        },
+        {
+          "criterion" : "2.1.1 Keyboard",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#keyboard"
+        },
+        {
+          "criterion" : "4.1.2 Name, Role, Value",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#name-role-value"
+        }
+      ],
+      "ruleIdentifier" : "SAC008",
+      "severity" : "high",
+      "sourceContext" : [
+        {
+          "line" : 75,
+          "text" : "                Color.black.opacity(0.4)"
+        },
+        {
+          "line" : 76,
+          "text" : "                    .ignoresSafeArea()"
+        },
+        {
+          "line" : 77,
+          "text" : "                    .onTapGesture { withAnimation { lookupWord = nil } }"
+        },
+        {
+          "line" : 78,
+          "text" : "                definitionPopup(word: word)"
+        },
+        {
+          "line" : 79,
+          "text" : "                    .transition(.scale.combined(with: .opacity))"
+        }
+      ],
+      "sourceExcerpt" : ".onTapGesture { withAnimation { lookupWord = nil } }",
+      "suggestion" : "Prefer a standard control or provide an accessibility action, representation, or appropriate interactive trait.",
+      "title" : "Gesture-only interaction"
+    },
+    {
+      "column" : 29,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/WordListView.swift",
+      "line" : 106,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 104,
+          "text" : "                    .overlay("
+        },
+        {
+          "line" : 105,
+          "text" : "                        Text(\"\\(rank)\")"
+        },
+        {
+          "line" : 106,
+          "text" : "                            .font(.system(size: 16, weight: .bold))"
+        },
+        {
+          "line" : 107,
+          "text" : "                            .monospacedDigit()"
+        },
+        {
+          "line" : 108,
+          "text" : "                            .foregroundStyle(Palette.cream)"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 16, weight: .bold))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    },
+    {
+      "column" : 21,
+      "description" : "Fixed font size may not support Dynamic Type",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/WordListView.swift",
+      "line" : 119,
+      "rationale" : "A fixed system font size can make text harder to read when the user requests larger accessibility sizes.",
+      "references" : [
+        {
+          "criterion" : "Typography",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "criterion" : "1.4.4 Resize Text",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#resize-text"
+        }
+      ],
+      "ruleIdentifier" : "SAC003",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 117,
+          "text" : ""
+        },
+        {
+          "line" : 118,
+          "text" : "                Image(systemName: \"book\")"
+        },
+        {
+          "line" : 119,
+          "text" : "                    .font(.system(size: 22, weight: .medium))"
+        },
+        {
+          "line" : 120,
+          "text" : "                    .foregroundStyle(textColor.opacity(0.4))"
+        },
+        {
+          "line" : 121,
+          "text" : "            }"
+        }
+      ],
+      "sourceExcerpt" : ".font(.system(size: 22, weight: .medium))",
+      "suggestion" : "Prefer a semantic text style such as .body or scale custom typography with UIFontMetrics.",
+      "title" : "Fixed font size"
+    }
+  ],
+  "generatedAt" : "2026-10-04T21:15:02Z",
+  "inputPaths" : [
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/CapeloApp.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/ContentView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/API.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/DeviceId.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/GameLanguage.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/GameViewModel.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/LetterGenerator.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/Strings.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/Wiktionary.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Game/WordValidator.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Models/GridEngine.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Models/ScoreEntry.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Models/Tile.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GameView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/GridView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/LeaderboardView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/Palette.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/PaletteStore.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/ScoreView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/SettingsView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/SplashView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/TileView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/ProjetosExternos/capelo/Capelo/Views/WordListView.swift"
+  ],
+  "schemaVersion" : "1.1",
+  "summary" : {
+    "byRule" : {
+      "SAC001" : 6,
+      "SAC002" : 4,
+      "SAC003" : 22,
+      "SAC005" : 3,
+      "SAC008" : 3
+    },
+    "bySeverity" : {
+      "high" : 9,
+      "low" : 3,
+      "medium" : 26
+    },
+    "totalIssues" : 38
+  },
+  "tool" : "Swift Accessibility Checker"
+}
