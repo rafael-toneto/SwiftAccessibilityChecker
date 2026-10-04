@@ -1,0 +1,510 @@
+{
+  "selectionDate": "2026-10-04",
+  "protocolCommit": "b51b19f1145652a0e561bb7785e5434fc04b2ca4",
+  "projects": [
+    {
+      "id": "rssbud",
+      "url": "https://github.com/Cay-Zhang/RSSBud",
+      "license": "MIT",
+      "commit": "50072e04817253d4866421c5059b3ac8e783317f",
+      "sourceRoots": [
+        "Shared",
+        "iOS"
+      ],
+      "files": [
+        {
+          "path": "Shared/App.swift",
+          "sha256": "9f9fee1e2f4c59a889af40c75b8736e4c97627dfab58fad9cef0bbbe691d4ec8"
+        },
+        {
+          "path": "Shared/BottomBar.swift",
+          "sha256": "340bb0a2958f433da111da715c7cc8c2e6b1c0ac6547425ab92034b4ffd79c6f"
+        },
+        {
+          "path": "Shared/ContentView.swift",
+          "sha256": "a6226d4cbaee1b18ea6f8916f118c40dd653de9cce9fa104ede567daf308e2b1"
+        },
+        {
+          "path": "Shared/Core/Core.swift",
+          "sha256": "987132af08ecd13ebf05fd2247bbfe10217071b12281eba1d153c9cb64bf4650"
+        },
+        {
+          "path": "Shared/ErrorView.swift",
+          "sha256": "3b4a484d937b51a287b70f2a383e212745db365daca94e1f5f9aeeda4b045df0"
+        },
+        {
+          "path": "Shared/Extensions/AutoAdvancingProgressView.swift",
+          "sha256": "44eddeba147342142a5df6182647994ed525a3fa214b22b44473b551c276021c"
+        },
+        {
+          "path": "Shared/Extensions/Backports.swift",
+          "sha256": "d6a59019979bbdda163570d4a7490e3c484ce47338a8746debfef6b262d247a9"
+        },
+        {
+          "path": "Shared/Extensions/ButtonStyling.swift",
+          "sha256": "4171b7e798b0e8f558cf387411855cbfc74d8e75b87a912c73fec1b1c75249b4"
+        },
+        {
+          "path": "Shared/Extensions/Combine+Async.swift",
+          "sha256": "c0a0bfd1b91d031ac6bf5a301b9591f7fdd44368b51c301e67e996e67596a226"
+        },
+        {
+          "path": "Shared/Extensions/CustomOpenURL.swift",
+          "sha256": "c48b44d982ded75ee4902a56ac406e24bfdac62d5eeedeb0f2bdbc0c9a1732ac"
+        },
+        {
+          "path": "Shared/Extensions/ExpandableSection.swift",
+          "sha256": "e2a378be1200920307c28bf035843c3de23f0bb3c7c0ca990137b6690e4c4f69"
+        },
+        {
+          "path": "Shared/Extensions/Extensions.swift",
+          "sha256": "0486bdc469aacdad042cff3ba7d12af5aa7e42ad620ceb6834a2ab3a09691c53"
+        },
+        {
+          "path": "Shared/Extensions/LinkPresentation.swift",
+          "sha256": "47250e35c315901d8c63739421cb6eb872fb3619c4cc1484d96cb68b43f0de57"
+        },
+        {
+          "path": "Shared/Extensions/PersistentFile.swift",
+          "sha256": "5a0b7606c78da172880fde2328648a60da941c2ccc205fbb95f605ed109d4cd8"
+        },
+        {
+          "path": "Shared/Extensions/ValidatedTextField.swift",
+          "sha256": "09f71325c48bc968b9f3e2f19d7ac4a928f109a52977b0c05a4a648bf3f6c552"
+        },
+        {
+          "path": "Shared/FeedView.swift",
+          "sha256": "83986f696b1b5c79a0a1826c3a7098dd9aa6897bdff756123133f1af4b71f150"
+        },
+        {
+          "path": "Shared/Integration.swift",
+          "sha256": "53fae665fa98a0baa766a4e25422b4cacdb8ab61b517a14d6af000d7bf042a88"
+        },
+        {
+          "path": "Shared/OnboardingView.swift",
+          "sha256": "ac570e2e9a33b4f8ee940f668d4f53eab9b8df7e2230e62bd9083b4319eeddb2"
+        },
+        {
+          "path": "Shared/QueryEditor.swift",
+          "sha256": "9f1709a59bde2be63f759ded2554434052986411059dbcec94e3b0014ccf3d93"
+        },
+        {
+          "path": "Shared/RSSBud.swift",
+          "sha256": "cdadfe7f10b59136bd79438b9e201e5fb285b087d3e2d000f45f5c5dc61cc9c9"
+        },
+        {
+          "path": "Shared/RSSHub.swift",
+          "sha256": "f4b405bb35835c54a953c40ac81ab99c32d36373458b94812275fa9f9fb2e996"
+        },
+        {
+          "path": "Shared/RuleManager.swift",
+          "sha256": "7193a19381178f43a916d92bd95524926282f0cc5bdb3dc791dce4083e667612"
+        },
+        {
+          "path": "Shared/SettingsView.swift",
+          "sha256": "94ad7e335ed10e7a6626711f0cae5f30cf048a60d3c963c8316ccf6ea3d54166"
+        },
+        {
+          "path": "Shared/Shortcut Workshop/ShortcutWorkshop.swift",
+          "sha256": "821226dd9d05c6f5e066dd35ca6b30e531405f597f156c1886f71c68900dceda"
+        },
+        {
+          "path": "Shared/StartView.swift",
+          "sha256": "59532d856a439e5ee32da7d64d13e2bc1339b4d9c4fe4f8c0da0f566f1b3a6b1"
+        }
+      ]
+    },
+    {
+      "id": "hundred-challenge-ios",
+      "url": "https://github.com/mkzung/hundred-challenge-ios",
+      "license": "MIT",
+      "commit": "83beb22ede8cf4ce6e3ffc3983616559207f421c",
+      "sourceRoots": [
+        "Sources"
+      ],
+      "files": [
+        {
+          "path": "Sources/App/HundredChallengeApp.swift",
+          "sha256": "297e1cf9ae7355abcbae4d45d231652429fe190b09764f1d7b64889499e4ec3c"
+        },
+        {
+          "path": "Sources/Models/Challenge.swift",
+          "sha256": "3c124fd8885d560ab5e94b98ce13d0980f195f7b45356903910ffb78549aa4a2"
+        },
+        {
+          "path": "Sources/Services/APIClient.swift",
+          "sha256": "47834fd6a9b05485ca8dc6e12346c34d0363c94e35ae45243db66982f320b9b2"
+        },
+        {
+          "path": "Sources/Services/AuthManager.swift",
+          "sha256": "8f3f9efc2b90ed9c65b0a54ce6198416d539de84ef6febcc32740f222be80147"
+        },
+        {
+          "path": "Sources/Services/HealthKitService.swift",
+          "sha256": "70bc3d44302e3d416e266c9386a58d444ca997f86845ee8fb708db5718633c71"
+        },
+        {
+          "path": "Sources/Views/Components/ChallengeCard.swift",
+          "sha256": "657dfc708e5c7c829b87cb6356e029101bcd570f35b1c1ebde7d144baa431240"
+        },
+        {
+          "path": "Sources/Views/Components/DesignSystem.swift",
+          "sha256": "18e26e8cdfc2f52e7fd1a77a4f8ba50ccb94b8c45e3f56c5e5157eb55925158a"
+        },
+        {
+          "path": "Sources/Views/Screens/AuthView.swift",
+          "sha256": "bb41a5a4e495a4852cbdf4c98cf8bb78f9fb1fc46bc80c836c5e714a1ba4f2e7"
+        },
+        {
+          "path": "Sources/Views/Screens/ChallengeDetailView.swift",
+          "sha256": "92178e4f3237066dbb17b2f61768b26f5e184178544a75a8643d7fa16e39dfb2"
+        },
+        {
+          "path": "Sources/Views/Screens/ClubsView.swift",
+          "sha256": "4ed35ea16428040deacece3c8991acfb5e733f0abb8d420102e8f84f4f5d0347"
+        },
+        {
+          "path": "Sources/Views/Screens/ExploreView.swift",
+          "sha256": "8354fb7b0cd82e58b3511c159039a0c0d456b435b0091d4540c46cf1176bc5ed"
+        },
+        {
+          "path": "Sources/Views/Screens/HomeView.swift",
+          "sha256": "d2e44151f219904d3c194038987dda34baee8ef7bf5bded73ede5c1332dfbd0b"
+        },
+        {
+          "path": "Sources/Views/Screens/MainTabView.swift",
+          "sha256": "2544ad37fe4b82e66e1c06731427f2349cbd7aff4c57329aba8f129be5a40f3f"
+        },
+        {
+          "path": "Sources/Views/Screens/NewChallengeView.swift",
+          "sha256": "10d4f1c9309e3f46ca80e2abb17458aad63859a9833579a5344ba72bbc5c8fa5"
+        },
+        {
+          "path": "Sources/Views/Screens/ProfileView.swift",
+          "sha256": "9c6da25694060bcb7397783f6dcbf87c69c64025752f4cb6d14d484b9e45349c"
+        }
+      ]
+    },
+    {
+      "id": "maeuse-ios",
+      "url": "https://github.com/michaeldiestelberg/maeuse-ios",
+      "license": "MIT",
+      "commit": "1a70cc5fa8aeccb49b0cc54bad624c7b7d1e7c67",
+      "sourceRoots": [
+        "Maeuse"
+      ],
+      "files": [
+        {
+          "path": "Maeuse/AppIntents/AddExpenseIntent.swift",
+          "sha256": "d1c413e240936f61676b8e9da1c34f9e512b96ceb174b9aeadb63c49b6555970"
+        },
+        {
+          "path": "Maeuse/ContentView.swift",
+          "sha256": "c92b466571b0be0d238bd911bbe88aa3622a4dd7c2df29431206dc198c7971ec"
+        },
+        {
+          "path": "Maeuse/MaeuseApp.swift",
+          "sha256": "b33ef5d5e295e86936ba7e20060fe281143a04d4a19ee2c24bd89e127ac909a1"
+        },
+        {
+          "path": "Maeuse/Models/Expense.swift",
+          "sha256": "3b51339cc5e4c9ec849717ad83b6c07c11b859d388b50b9487ddcb913cb4a1d1"
+        },
+        {
+          "path": "Maeuse/Models/VoiceWorkspace.swift",
+          "sha256": "16fa36375f1901f231bb76ddc0b91bca106528e39caa26dd231c136d5bf370f3"
+        },
+        {
+          "path": "Maeuse/Services/AppleExpenseInterpreter.swift",
+          "sha256": "e5dd9974cf250fa23a538a84688eb1fe793e8a8737128fb70ba35a6d16b6a31b"
+        },
+        {
+          "path": "Maeuse/Services/AppleLocalVoiceService.swift",
+          "sha256": "0263355a1f852550090eb486e99003f7af5085cc55beab7f5a3c4e5f230046e8"
+        },
+        {
+          "path": "Maeuse/Services/BackupService.swift",
+          "sha256": "b36f9a073448a278d512399cf024c7586601b66aa4a4f8f6097a04200cef783a"
+        },
+        {
+          "path": "Maeuse/Services/CaptureLaunchRouter.swift",
+          "sha256": "efe1f39cf1e80af22be474cf5eedab1a569953b8c8a4df8882bba1b1b1d66183"
+        },
+        {
+          "path": "Maeuse/Services/LanguageManager.swift",
+          "sha256": "63b93421462d0afcb5eeaa18b6190147b9226e9c7f84f96821e7d50efb2da95d"
+        },
+        {
+          "path": "Maeuse/Services/OpenAIRealtimeClientSecretService.swift",
+          "sha256": "2a20713289f86b2547aaaf1f1143ea8742462ad79963090475b3a92c4188c3d6"
+        },
+        {
+          "path": "Maeuse/Services/RealtimeEventParser.swift",
+          "sha256": "5267ce975ddcf12714eedc3396c3afe87f25e83a91b3c2c2128f06fa51ea0a2a"
+        },
+        {
+          "path": "Maeuse/Services/RealtimeVoiceService.swift",
+          "sha256": "f33687e035c12fa09436fb688a292539bc0d0052bf5de0dc2809a4482f13a152"
+        },
+        {
+          "path": "Maeuse/Services/VoiceSessionService.swift",
+          "sha256": "ff7c8704779b28f6e091953b85d659328e4e7a879acae83550b100f199a286c2"
+        },
+        {
+          "path": "Maeuse/Theme/LiquidGlass.swift",
+          "sha256": "6c37a2c04ba14701f4c437afcfdddd116734a7362f063e80c630558c295ea389"
+        },
+        {
+          "path": "Maeuse/ViewModels/ExpenseEditorViewModel.swift",
+          "sha256": "027c1f8e7a93d31f3c8643288fbdc9c93eaca318b99026c17b78274000214e49"
+        },
+        {
+          "path": "Maeuse/ViewModels/ExpenseListViewModel.swift",
+          "sha256": "e2deba28943e65dea2647c861a0f818da2498b581096a8641852d446cad02f03"
+        },
+        {
+          "path": "Maeuse/ViewModels/SettingsViewModel.swift",
+          "sha256": "4a9885a2aa96863484c8ef32bd89d2703d514a39b50141584147d4b322af7de7"
+        },
+        {
+          "path": "Maeuse/ViewModels/VoiceModeViewModel.swift",
+          "sha256": "4a0be5d7ae31266260612269f224c41927fc2effb72e2225b7d701c87ccf4aad"
+        },
+        {
+          "path": "Maeuse/Views/Components/ExpenseRow.swift",
+          "sha256": "33c7ee9c18e50c64beac68f62b37daee817b93e54a37e85b51eafd148082a4fc"
+        },
+        {
+          "path": "Maeuse/Views/ExpenseEditorSheet.swift",
+          "sha256": "a7e14dcc613f254ae116a21c0469f764513ec92b0bfcfe02b3505b6c315943f3"
+        },
+        {
+          "path": "Maeuse/Views/MainExpenseView.swift",
+          "sha256": "b71a9dec3155f429e4bd547ea1e1250a7a84e8f53539b371d43839fa4528889f"
+        },
+        {
+          "path": "Maeuse/Views/OnboardingView.swift",
+          "sha256": "a2b9196d66c5628769927634fee26351176db52e97480f7b92bd326a428fa3a4"
+        },
+        {
+          "path": "Maeuse/Views/SettingsSheet.swift",
+          "sha256": "13226ca1c58883a18eb4aab48a52e46ca2185bce4bc48ea5b725b6b8d7a28227"
+        },
+        {
+          "path": "Maeuse/Views/VoiceSheet.swift",
+          "sha256": "4f1fc5c3ee01d7ed2a9b9eb2f54554db71defc4fba046e3d9476f311ba9c986c"
+        }
+      ]
+    },
+    {
+      "id": "capelo",
+      "url": "https://github.com/cassardp/capelo",
+      "license": "MIT",
+      "commit": "a775025a948427171f8b6c29263870e52e443322",
+      "sourceRoots": [
+        "Capelo"
+      ],
+      "files": [
+        {
+          "path": "Capelo/CapeloApp.swift",
+          "sha256": "5035133149e60bba7a8f69a096b0efc447508200a6d637e25cca794f6bb6ea44"
+        },
+        {
+          "path": "Capelo/ContentView.swift",
+          "sha256": "01a73ecabfa24bf5d330b3bc910db7a8f3accf6f3ac306ccefdadfc83154b890"
+        },
+        {
+          "path": "Capelo/Game/API.swift",
+          "sha256": "ff6601f60eda6c3d1074d145ee53bdeda9d19e15423c6190a965a51fa3b1ae24"
+        },
+        {
+          "path": "Capelo/Game/DeviceId.swift",
+          "sha256": "8077dafa482424c38e994627fddd8b547a02b6c9b72e41494a38dda1f4892363"
+        },
+        {
+          "path": "Capelo/Game/GameLanguage.swift",
+          "sha256": "1de5287f611a0151f291607d45abefe96532954579eab68a0f9b4d27e1c5bd81"
+        },
+        {
+          "path": "Capelo/Game/GameViewModel.swift",
+          "sha256": "012a24755f36f75ccf8011b57eee66f9a507600cd469606cd17cca9185a09c7f"
+        },
+        {
+          "path": "Capelo/Game/LetterGenerator.swift",
+          "sha256": "66446da74d7107b94177944183119c9dd588f398bb0984fe7bfa244c27fbd48d"
+        },
+        {
+          "path": "Capelo/Game/Strings.swift",
+          "sha256": "366289a6d4d9f41f54e6b48d08747f454d11efa74298d0cce93ded04d0752765"
+        },
+        {
+          "path": "Capelo/Game/Wiktionary.swift",
+          "sha256": "164c6f867a78c8780c6f3a886a3b8ffb777ee3bc42e9dbfc2b81d0dcef849c49"
+        },
+        {
+          "path": "Capelo/Game/WordValidator.swift",
+          "sha256": "9907fcd64a1d12e3f556bfc23a47bea439e0a5d026e20409f8ff4ac71bfafee9"
+        },
+        {
+          "path": "Capelo/Models/GridEngine.swift",
+          "sha256": "8625d8df9160b894cca634e46714af7c7c1c14637cb7674c91328e229e0f0c91"
+        },
+        {
+          "path": "Capelo/Models/ScoreEntry.swift",
+          "sha256": "7c9880b737331cfd09848baf68cddb404fa3b70b199d8dfde1f6a2c151039da4"
+        },
+        {
+          "path": "Capelo/Models/Tile.swift",
+          "sha256": "b8ad47872895341282c6866fac45506737d7ec3a8f7b2f81ffe4e0be5c741206"
+        },
+        {
+          "path": "Capelo/Views/GameView.swift",
+          "sha256": "304e4b5b545229f2039025faf52368585ab369be276937ac9e71cb64aa3065c7"
+        },
+        {
+          "path": "Capelo/Views/GridView.swift",
+          "sha256": "656134921041a29e0edf8f19cc691dfc474e7f28bb69908286bfa1fa40eca859"
+        },
+        {
+          "path": "Capelo/Views/LeaderboardView.swift",
+          "sha256": "6a418228aca431409eeca2de881879cb289a333960ed98667db2345258e038b6"
+        },
+        {
+          "path": "Capelo/Views/Palette.swift",
+          "sha256": "1eb7c3e01a3d3f73b5fd0b9593cc43c6ae417a3e28f34ec19eef241f0f177d6d"
+        },
+        {
+          "path": "Capelo/Views/PaletteStore.swift",
+          "sha256": "c06300281cdce58471b64a469e362bc84f507b9acb1e31fbd1980dcaf3912cb1"
+        },
+        {
+          "path": "Capelo/Views/ScoreView.swift",
+          "sha256": "ccf1fdd5dab8f3081047bff23a59d409c6599ac9c8c121c333f182ec88d6755b"
+        },
+        {
+          "path": "Capelo/Views/SettingsView.swift",
+          "sha256": "49d0f451ca65c1642a819d2a9691e0a0ab26e59933ae91beabd7a86aba6a4616"
+        },
+        {
+          "path": "Capelo/Views/SplashView.swift",
+          "sha256": "bd13146f6aefa6f5f8438ac939d0fbb67c91eb05cda9cd54e85a9a6d5512f350"
+        },
+        {
+          "path": "Capelo/Views/TileView.swift",
+          "sha256": "5a445c327db994a7f580280106f734eb50a37f6ab02a0efb1c6184e92f8ea781"
+        },
+        {
+          "path": "Capelo/Views/WordListView.swift",
+          "sha256": "b5b4c7714336c6f642a1c1143a8ab79cc96bab4a071966e78b76b0d878554af5"
+        }
+      ]
+    },
+    {
+      "id": "expense-tracker",
+      "url": "https://github.com/Menaker-john/expense-tracker",
+      "license": "MIT",
+      "commit": "83ffc3b947f237c29e392962df97a22801513fd6",
+      "sourceRoots": [
+        "Expense Tracker"
+      ],
+      "files": [
+        {
+          "path": "Expense Tracker/Constants/Categories.swift",
+          "sha256": "c0dfab98db2286225532435f717907a56d6bf47687c03f5110f780f0f3bc1f74"
+        },
+        {
+          "path": "Expense Tracker/Expense_TrackerApp.swift",
+          "sha256": "ffeb9e949b60010b5a950fe9d3f8822d4f3b6c13ebfc84e99292accf3b0a8886"
+        },
+        {
+          "path": "Expense Tracker/Extensions/DateExtension.swift",
+          "sha256": "02ce8d40c89b24afc617af78bb2477623f5485d8d8a2b3cc38860b011661376d"
+        },
+        {
+          "path": "Expense Tracker/Extensions/FormatterExtension.swift",
+          "sha256": "4a030e529870983e270ca554e90c67ce2e3c2a9166c95144136f48577d4f466d"
+        },
+        {
+          "path": "Expense Tracker/Extensions/ViewExtension.swift",
+          "sha256": "337ac595426b6f7e010aa352f25c92c12251fd2d880c95215cfa8a1efec92bd4"
+        },
+        {
+          "path": "Expense Tracker/Models/Budget.swift",
+          "sha256": "7db5d7b11be221c231806f85822ef5f0df9fa8885bf0e58ea95198091e1d6713"
+        },
+        {
+          "path": "Expense Tracker/Models/Category.swift",
+          "sha256": "60b49b4a8b05666bb9b56a70547dadf088acadf2a7a2aa6616558aa4709c9dff"
+        },
+        {
+          "path": "Expense Tracker/Models/Record.swift",
+          "sha256": "60006e1095173addeef8fec0a07a3601a982b9a3282d6979be01a013092b622a"
+        },
+        {
+          "path": "Expense Tracker/Services/BudgetsService.swift",
+          "sha256": "1b26f87f74cd3667ed8ef26304cb7fe15b4c79af7fb9c7ed9979102d9ecd7d3f"
+        },
+        {
+          "path": "Expense Tracker/Views/Budget Views/BudgetListView.swift",
+          "sha256": "efba98ec413a7043ae53cda34ea16dac200be0d280a7450ad64e1c2c5cdbe579"
+        },
+        {
+          "path": "Expense Tracker/Views/Budget Views/BudgetOptionsView.swift",
+          "sha256": "0e70d146cf193888392fc5aee68815f9e3391dd51058f2abd0b673eeb22f6108"
+        },
+        {
+          "path": "Expense Tracker/Views/Budget Views/BudgetView.swift",
+          "sha256": "3d36e9c2410a4f354210b2d01228be3e51694a56ce4937b97c7c9e30aca52ac9"
+        },
+        {
+          "path": "Expense Tracker/Views/Budget Views/Record Views/AdvancedRecordView.swift",
+          "sha256": "a73fb3d541df6522223aee9aa452e6a47b5c6a74a947a73a0a988f9818fb4da7"
+        },
+        {
+          "path": "Expense Tracker/Views/Budget Views/Record Views/RecordRowView.swift",
+          "sha256": "73d735352d04527930bb2b297c6937293ef61f36d4600e44fd3b426b3ad8499b"
+        },
+        {
+          "path": "Expense Tracker/Views/Chart Views/Charts/BarChartView.swift",
+          "sha256": "052a2ec5b59763541e04f333a1b334ed03e89255b51986483e4eb552f9d54ffa"
+        },
+        {
+          "path": "Expense Tracker/Views/Chart Views/Charts/PieChartView.swift",
+          "sha256": "9a30cd44feacf4dc77fa7ab638a60f15a31a3fce76b4a97631bfa180b700ad91"
+        },
+        {
+          "path": "Expense Tracker/Views/Chart Views/ChartsNavigationView.swift",
+          "sha256": "1e5abfc222c5e2b82ef889730441879f162cedbbc91ef2fd491d181f1e66b950"
+        },
+        {
+          "path": "Expense Tracker/Views/Chart Views/ExpenseOverviewChart.swift",
+          "sha256": "60d9f705f9ac75799a6da4908ffb135e5bb8938f76e9793391b9e144703adb6f"
+        },
+        {
+          "path": "Expense Tracker/Views/Chart Views/SavingsChart.swift",
+          "sha256": "0f0530117ece8e4b5590a8131528101b349389528090dc1dee6c585e7a970967"
+        },
+        {
+          "path": "Expense Tracker/Views/Chart Views/SpendingTrendsChart.swift",
+          "sha256": "1456fbd14b3fb03f911dd95c527734c3ec74952f6f3067aef03bf0a5c60c9bce"
+        },
+        {
+          "path": "Expense Tracker/Views/Components/BudgetName.swift",
+          "sha256": "06e3bab6f2e358cad151dfb8ae80d16c3e4265e97be8fe994d62e7f68e353c95"
+        },
+        {
+          "path": "Expense Tracker/Views/Components/ColoredMoney.swift",
+          "sha256": "7b2759e4921b1123ee5c6036d8c3a0ed3b72100aeb534a400502a6daa6f20104"
+        },
+        {
+          "path": "Expense Tracker/Views/Components/SearchBar.swift",
+          "sha256": "6e386067fc64b939f84b19ffb4993a6864316b7c022f162a98f16839449b77f8"
+        },
+        {
+          "path": "Expense Tracker/Views/ContentView.swift",
+          "sha256": "f8d6d637407d590c2bf712a1fcba119ca462b65481434401f8db5ac7416a402e"
+        }
+      ]
+    }
+  ]
+}

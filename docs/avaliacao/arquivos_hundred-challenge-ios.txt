@@ -1,0 +1,15 @@
+Sources/App/HundredChallengeApp.swift
+Sources/Models/Challenge.swift
+Sources/Services/APIClient.swift
+Sources/Services/AuthManager.swift
+Sources/Services/HealthKitService.swift
+Sources/Views/Components/ChallengeCard.swift
+Sources/Views/Components/DesignSystem.swift
+Sources/Views/Screens/AuthView.swift
+Sources/Views/Screens/ChallengeDetailView.swift
+Sources/Views/Screens/ClubsView.swift
+Sources/Views/Screens/ExploreView.swift
+Sources/Views/Screens/HomeView.swift
+Sources/Views/Screens/MainTabView.swift
+Sources/Views/Screens/NewChallengeView.swift
+Sources/Views/Screens/ProfileView.swift
