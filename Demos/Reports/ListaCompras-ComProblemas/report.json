@@ -1,0 +1,176 @@
+{
+  "analyzedFiles" : [
+    "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/ComProblemas/ContentView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/Shared/App.swift"
+  ],
+  "diagnostics" : [
+    {
+      "column" : 29,
+      "description" : "Button with image-only or empty content should provide an accessibility label",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/ComProblemas/ContentView.swift",
+      "line" : 31,
+      "rationale" : "An unlabeled control can prevent VoiceOver users from understanding its purpose.",
+      "references" : [
+        {
+          "criterion" : "accessibilityLabel",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/documentation/swiftui/view/accessibilitylabel(_:)"
+        },
+        {
+          "criterion" : "1.1.1 Non-text Content",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#non-text-content"
+        },
+        {
+          "criterion" : "4.1.2 Name, Role, Value",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#name-role-value"
+        }
+      ],
+      "ruleIdentifier" : "SAC001",
+      "severity" : "high",
+      "sourceContext" : [
+        {
+          "line" : 29,
+          "text" : ""
+        },
+        {
+          "line" : 30,
+          "text" : "                            // SAC001: só o desenho não explica a ação ao leitor de tela."
+        },
+        {
+          "line" : 31,
+          "text" : "                            Button(role: .destructive) {"
+        },
+        {
+          "line" : 32,
+          "text" : "                                hasMilk = false"
+        },
+        {
+          "line" : 33,
+          "text" : "                            } label: {"
+        }
+      ],
+      "sourceExcerpt" : "Button(role: .destructive) {",
+      "suggestion" : "Add an accessibilityLabel that describes the action, or use a control initializer with a meaningful visible title.",
+      "title" : "Missing accessibility label"
+    },
+    {
+      "column" : 29,
+      "description" : "Accessibility value must not be empty",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/ComProblemas/ContentView.swift",
+      "line" : 54,
+      "rationale" : "Empty metadata can replace useful default semantics with no information for assistive technologies.",
+      "references" : [
+        {
+          "criterion" : "View accessibility",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/documentation/swiftui/view-accessibility"
+        },
+        {
+          "criterion" : "4.1.2 Name, Role, Value",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#name-role-value"
+        }
+      ],
+      "ruleIdentifier" : "SAC006",
+      "severity" : "high",
+      "sourceContext" : [
+        {
+          "line" : 52,
+          "text" : "                        Text(\"Unidades: \\(quantity)\")"
+        },
+        {
+          "line" : 53,
+          "text" : "                            .accessibilityLabel(\"Quantidade de leite\")"
+        },
+        {
+          "line" : 54,
+          "text" : "                            .accessibilityValue(\"\")"
+        },
+        {
+          "line" : 55,
+          "text" : ""
+        },
+        {
+          "line" : 56,
+          "text" : "                        HStack(spacing: 20) {"
+        }
+      ],
+      "sourceExcerpt" : ".accessibilityValue(\"\")",
+      "suggestion" : "Provide meaningful content or remove the empty modifier so the framework can preserve its default semantics.",
+      "title" : "Empty accessibility metadata"
+    },
+    {
+      "column" : 29,
+      "description" : "Explicit frame may create a touch target smaller than 44 x 44 points",
+      "filePath" : "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/ComProblemas/ContentView.swift",
+      "line" : 77,
+      "rationale" : "Small interactive regions can be difficult to activate for people with limited motor precision.",
+      "references" : [
+        {
+          "criterion" : "Accessibility",
+          "source" : "Apple",
+          "url" : "https://developer.apple.com/design/human-interface-guidelines/accessibility"
+        },
+        {
+          "criterion" : "2.5.5 Target Size (Enhanced)",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#target-size-enhanced"
+        },
+        {
+          "criterion" : "2.5.8 Target Size (Minimum)",
+          "source" : "WCAG 2.2",
+          "url" : "https://www.w3.org/TR/WCAG22/#target-size-minimum"
+        }
+      ],
+      "ruleIdentifier" : "SAC004",
+      "severity" : "medium",
+      "sourceContext" : [
+        {
+          "line" : 75,
+          "text" : "                            }"
+        },
+        {
+          "line" : 76,
+          "text" : "                            .buttonStyle(.plain)"
+        },
+        {
+          "line" : 77,
+          "text" : "                            .frame(width: 28, height: 28)"
+        },
+        {
+          "line" : 78,
+          "text" : "                            .background(.tint.opacity(0.12), in: RoundedRectangle(cornerRadius: 8))"
+        },
+        {
+          "line" : 79,
+          "text" : "                            .contentShape(Rectangle())"
+        }
+      ],
+      "sourceExcerpt" : ".frame(width: 28, height: 28)",
+      "suggestion" : "Increase the effective hit area to at least 44 x 44 points or confirm that padding and layout provide an equivalent target.",
+      "title" : "Potentially small touch target"
+    }
+  ],
+  "generatedAt" : "2026-10-04T21:13:33Z",
+  "inputPaths" : [
+    "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/ComProblemas/ContentView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/Shared/App.swift"
+  ],
+  "schemaVersion" : "1.1",
+  "summary" : {
+    "byRule" : {
+      "SAC001" : 1,
+      "SAC004" : 1,
+      "SAC006" : 1
+    },
+    "bySeverity" : {
+      "high" : 2,
+      "low" : 0,
+      "medium" : 1
+    },
+    "totalIssues" : 3
+  },
+  "tool" : "Swift Accessibility Checker"
+}

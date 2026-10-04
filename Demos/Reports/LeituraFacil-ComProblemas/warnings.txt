@@ -1,0 +1,3 @@
+/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/LeituraFacil/ComProblemas/ContentView.swift:15:25: warning: Image should be labeled or explicitly hidden from accessibility [SAC002] [medium]
+/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/LeituraFacil/ComProblemas/ContentView.swift:36:25: warning: Fixed font size may not support Dynamic Type [SAC003] [medium]
+/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/LeituraFacil/ComProblemas/ContentView.swift:46:25: warning: A fixed or capped Dynamic Type size may limit accessible text scaling [SAC009] [medium]

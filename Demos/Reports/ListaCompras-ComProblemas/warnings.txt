@@ -1,0 +1,3 @@
+/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/ComProblemas/ContentView.swift:31:29: warning: Button with image-only or empty content should provide an accessibility label [SAC001] [high]
+/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/ComProblemas/ContentView.swift:54:29: warning: Accessibility value must not be empty [SAC006] [high]
+/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/ComProblemas/ContentView.swift:77:29: warning: Explicit frame may create a touch target smaller than 44 x 44 points [SAC004] [medium]

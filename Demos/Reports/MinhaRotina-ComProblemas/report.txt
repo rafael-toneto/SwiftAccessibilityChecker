@@ -1,0 +1,138 @@
+RELATÓRIO DE ACESSIBILIDADE
+Swift Accessibility Checker
+Gerado em: 2026-10-04T21:13:33Z
+
+RESUMO
+3 achado(s) para revisar em 1 arquivo(s).
+Arquivos Swift analisados: 2
+Alta: 2 · Média: 0 · Baixa: 1
+
+Esta análise estática identifica padrões de risco no código SwiftUI; não executa o app nem certifica conformidade com todas as diretrizes Apple ou WCAG. Os achados precisam de revisão no contexto da interface. A ausência de avisos não garante acessibilidade.
+
+CAMINHOS DE ENTRADA
+- /Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/MinhaRotina/ComProblemas/ContentView.swift
+- /Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/MinhaRotina/Shared/App.swift
+
+POR ONDE COMEÇAR
+Revise os itens de prioridade alta primeiro. A prioridade estima o possível impacto; não é um nível de conformidade WCAG.
+Confirme o contexto, ajuste o código e valide no app. Mais de uma regra pode apontar para o mesmo componente.
+
+- Alta | SAC007 | Controle oculto para tecnologias assistivas | 1 ocorrência(s)
+- Alta | SAC008 | Ação depende de um gesto personalizado | 1 ocorrência(s)
+- Baixa | SAC005 | Estado possivelmente indicado apenas por cor | 1 ocorrência(s)
+
+ARQUIVOS COM ACHADOS
+- ComProblemas/ContentView.swift: 3 ocorrência(s)
+
+AJUSTES NO CÓDIGO
+Exemplos ilustrativos: adapte nomes, estados, localização e layout ao projeto.
+
+────────────────────────────────────────────────────────────────
+1. [Alta] Controle oculto para tecnologias assistivas (SAC007)
+Arquivo: ComProblemas/ContentView.swift
+Linha: 46 | Coluna: 25
+Localização original: /Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/MinhaRotina/ComProblemas/ContentView.swift:46:25
+
+O que foi encontrado: O controle, ou um contêiner que o contém, usa accessibilityHidden(true).
+Impacto para quem usa o app: A ação pode desaparecer da navegação por VoiceOver e ficar indisponível para parte das pessoas.
+Como ajustar: Remova accessibilityHidden(true) do controle quando a ação precisar estar disponível. Se ele duplicar uma ação, confirme que existe um equivalente acessível, com o mesmo resultado e no contexto adequado.
+
+Trecho encontrado (linha apontada marcada com >):
+    44 |                     // SAC007: o controle aparece na tela, mas fica oculto do VoiceOver.
+    45 |                     Toggle("Mostrar lembrete aqui", isOn: $reminderEnabled)
+  > 46 |                         .accessibilityHidden(true)
+    47 | 
+    48 |                     if reminderEnabled {
+
+Antes — exemplo ilustrativo:
+  Button("Continuar", action: continuar)
+      .accessibilityHidden(true)
+
+Depois — exemplo ilustrativo:
+  Button("Continuar", action: continuar)
+
+Como validar: Navegue pela tela com VoiceOver e execute a ação. Confirme que ela pode ser encontrada e concluída sem depender do controle oculto.
+Antes de concluir: Ocultar um controle duplicado pode ser intencional se o elemento pai ou outro controle oferece a mesma ação de forma acessível. Verifique isso no app.
+
+Referências:
+- Apple — accessibilityHidden: https://developer.apple.com/documentation/swiftui/view/accessibilityhidden(_:)
+- WCAG 2.2 — 4.1.2 Name, Role, Value: https://www.w3.org/TR/WCAG22/#name-role-value
+
+────────────────────────────────────────────────────────────────
+2. [Alta] Ação depende de um gesto personalizado (SAC008)
+Arquivo: ComProblemas/ContentView.swift
+Linha: 65 | Coluna: 25
+Localização original: /Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/MinhaRotina/ComProblemas/ContentView.swift:65:25
+
+O que foi encontrado: Foi encontrado um gesto de toque ou pressão prolongada sem uma ação acessível equivalente reconhecida pela regra.
+Impacto para quem usa o app: A ação pode não ser descoberta ou executada com VoiceOver, Controle Assistivo ou teclado.
+Como ajustar: Para uma ação simples, prefira Button ou outro controle padrão. Se o gesto precisar permanecer, exponha uma ação equivalente com accessibilityAction ou accessibilityRepresentation e valide sua operação.
+
+Trecho encontrado (linha apontada marcada com >):
+    63 |                         .padding(.vertical, 12)
+    64 |                         .contentShape(Rectangle())
+  > 65 |                         .onTapGesture {
+    66 |                             showingTip = true
+    67 |                         }
+
+Antes — exemplo ilustrativo:
+  Text("Abrir detalhes")
+      .onTapGesture { abrirDetalhes() }
+
+Depois — exemplo ilustrativo:
+  Button("Abrir detalhes", action: abrirDetalhes)
+
+Como validar: Localize e execute a ação usando VoiceOver e os métodos de entrada suportados pelo app. Gestos com múltiplos toques ou pressão prolongada também precisam de uma alternativa operável.
+Antes de concluir: Adicionar apenas um nome ou a característica .isButton não garante que a ação funcione com todas as tecnologias assistivas. A equivalência precisa ser testada em execução.
+
+Referências:
+- Apple — Accessible controls: https://developer.apple.com/documentation/swiftui/accessible-controls
+- WCAG 2.2 — 2.1.1 Keyboard: https://www.w3.org/TR/WCAG22/#keyboard
+- WCAG 2.2 — 4.1.2 Name, Role, Value: https://www.w3.org/TR/WCAG22/#name-role-value
+
+────────────────────────────────────────────────────────────────
+3. [Baixa] Estado possivelmente indicado apenas por cor (SAC005)
+Arquivo: ComProblemas/ContentView.swift
+Linha: 19 | Coluna: 29
+Localização original: /Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/MinhaRotina/ComProblemas/ContentView.swift:19:29
+
+O que foi encontrado: Uma cor muda conforme o estado, sem uma alternativa reconhecida neste trecho.
+Impacto para quem usa o app: Pessoas com daltonismo ou baixa visão podem não distinguir estados como sucesso, erro ou seleção.
+Como ajustar: Acrescente texto visível, forma ou símbolo que também mude com o estado. Exponha o significado para o VoiceOver. Um accessibilityValue isolado não cria uma alternativa visual à cor.
+
+Trecho encontrado (linha apontada marcada com >):
+    17 |                         // SAC005: o estado do hábito é comunicado apenas pela cor.
+    18 |                         Circle()
+  > 19 |                             .fill(habitCompleted ? Color.green : Color.orange)
+    20 |                             .frame(width: 44, height: 44)
+    21 | 
+
+Antes — exemplo ilustrativo:
+  Circle()
+      .fill(concluido ? Color.green : Color.red)
+
+Depois — exemplo ilustrativo:
+  Label {
+      Text(concluido ? "Concluído" : "Pendente")
+  } icon: {
+      Image(systemName: concluido ? "checkmark.circle" : "clock")
+  }
+  .foregroundStyle(concluido ? Color.green : Color.red)
+
+Como validar: Confira os estados sem depender da cor, por exemplo em escala de cinza. Com VoiceOver, verifique se o estado atual é compreensível.
+Antes de concluir: Uma legenda ou descrição em outro elemento pode já resolver o problema. Este aviso não mede contraste nem confirma que a cor seja o único indicador.
+
+Referências:
+- Apple — Color: https://developer.apple.com/design/human-interface-guidelines/color
+- WCAG 2.2 — 1.4.1 Use of Color: https://www.w3.org/TR/WCAG22/#use-of-color
+
+VALIDAÇÃO MANUAL QUE COMPLEMENTA ESTE RELATÓRIO
+[ ] VoiceOver: percorra os fluxos principais e confira nomes, estados, ordem de foco, agrupamento e anúncios de mudanças.
+[ ] Dynamic Type: teste os maiores tamanhos de acessibilidade, textos longos e os idiomas suportados, sem cortes ou sobreposição.
+[ ] Contraste e cor: confira textos, ícones e estados nos temas claro e escuro; toda informação por cor também precisa de outro indicador.
+[ ] Interação: valide áreas de toque, teclado, Controle por Voz e Controle Assistivo nos dispositivos e plataformas suportados.
+[ ] Movimento e mídia: respeite Reduzir Movimento e revise legendas, transcrições e alternativas para conteúdo audiovisual quando houver.
+[ ] Validação: execute o Accessibility Inspector, registre os resultados e teste os fluxos com pessoas que usam tecnologias assistivas.
+
+Execute o checker novamente após os ajustes e registre a validação manual no PR. Para um possível falso positivo, registre a regra, o trecho e o comportamento observado; remova dados sensíveis antes de compartilhar.
+

@@ -1,0 +1,27 @@
+{
+  "analyzedFiles" : [
+    "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/LeituraFacil/Corrigido/ContentView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/LeituraFacil/Shared/App.swift"
+  ],
+  "diagnostics" : [
+
+  ],
+  "generatedAt" : "2026-10-04T21:13:33Z",
+  "inputPaths" : [
+    "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/LeituraFacil/Corrigido/ContentView.swift",
+    "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/LeituraFacil/Shared/App.swift"
+  ],
+  "schemaVersion" : "1.1",
+  "summary" : {
+    "byRule" : {
+
+    },
+    "bySeverity" : {
+      "high" : 0,
+      "low" : 0,
+      "medium" : 0
+    },
+    "totalIssues" : 0
+  },
+  "tool" : "Swift Accessibility Checker"
+}

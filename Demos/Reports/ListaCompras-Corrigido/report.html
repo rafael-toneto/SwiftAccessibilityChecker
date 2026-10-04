@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <title>Revisão de acessibilidade · Swift Accessibility Checker</title>
+  <style>:root{--ink:#172e2b;--muted:#516561;--paper:#f4f6f2;--white:#fff;--line:#ccd8d2;--teal:#126653;--teal-light:#e9f3ed;--high:#923515;--high-bg:#fff0e7;--medium:#755505;--medium-bg:#fff6d9;--low:#345d7a;--low-bg:#edf4fb;--radius:16px;--mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;line-height:1.65}
+a{color:var(--teal);text-underline-offset:4px}
+button,input,select,textarea{font:inherit}
+button,a,input,select,summary{touch-action:manipulation}
+button{cursor:pointer}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #1769aa;outline-offset:4px}
+h1,h2,h3,h4,p{margin-top:0}
+h1,h2,h3,h4{line-height:1.2}
+h2{font-size:28px;letter-spacing:-.6px;margin-bottom:12px}
+h3{font-size:23px;letter-spacing:-.35px}
+h4{font-size:16px;margin-bottom:9px}
+p{margin-bottom:14px}
+pre,code{font-family:var(--mono)}
+code{font-size:.88em}
+pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;tab-size:4}
+pre code{font-size:13px;line-height:1.75}
+button[hidden],[hidden]{display:none!important}
+.wrap{width:min(1184px,calc(100% - 80px));margin-inline:auto}
+.masthead{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:30px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:13px;font-weight:700;font-size:14px;line-height:1.4}
+.brand-mark{display:grid;place-items:center;width:46px;height:46px;border-radius:13px;background:var(--ink);color:#e3f3c2;font-family:var(--mono);font-size:15px;letter-spacing:-1px}
+.brand-subtitle{display:block;font-size:12px;font-weight:400;color:var(--muted);margin-top:3px}
+.masthead nav{display:flex;gap:26px;font-size:13px;font-weight:600}
+.masthead nav a{text-decoration:none}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:72px;padding-block:54px 38px;align-items:center}
+.eyebrow{text-transform:uppercase;letter-spacing:1.55px;font-size:11px;font-weight:750;color:var(--muted);margin-bottom:18px}
+.hero h1{font-size:clamp(38px,4.6vw,60px);font-weight:750;letter-spacing:-2.7px;line-height:1.03;margin-bottom:24px}
+.accent{color:var(--teal)}
+.hero-description{max-width:490px;color:var(--muted);font-size:16px;margin-bottom:0}
+.summary-panel{border-left:3px solid var(--teal);padding:5px 0 5px 26px}
+.summary-panel .eyebrow{display:block;margin-bottom:14px}
+.summary-panel h2{font-size:30px;max-width:400px}
+.summary-panel>p{color:var(--muted);font-size:14px}
+.summary-panel .timestamp{font-family:var(--mono);font-size:10px;margin:24px 0 0;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat{background:var(--white);padding:19px 22px;border:1px solid var(--line);border-radius:12px;position:relative}
+.stat:before{content:"";position:absolute;top:22px;right:21px;width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.stat.high:before{background:var(--high)}
+.stat.medium:before{background:var(--medium)}
+.stat.low:before{background:var(--low)}
+.stat-label,.stat-detail{display:block;font-size:12px;color:var(--muted)}
+.stat-label{font-weight:650;padding-right:16px}
+.stat strong{display:block;font-size:39px;line-height:1.5;letter-spacing:-1.5px;font-weight:650}
+.scope-note{font-size:13px;color:var(--muted);margin:22px 0 50px;max-width:1060px}
+.scope-note strong{color:var(--ink)}
+.coverage-alert{border:1px solid #c07946;border-left:5px solid var(--high);background:var(--high-bg);border-radius:12px;padding:23px;margin-top:24px}
+.coverage-alert h2{font-size:20px}
+.coverage-alert li{overflow-wrap:anywhere;margin-bottom:12px}
+.section-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
+.section-heading .eyebrow{margin-bottom:10px}
+.section-heading h2{margin-bottom:0}
+.count{display:inline-block;vertical-align:middle;border:1px solid var(--line);border-radius:100px;min-width:34px;padding:5px 9px;margin-left:8px;font-size:14px;font-weight:600;letter-spacing:0;text-align:center}
+.button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border:1px solid var(--teal);border-radius:7px;background:var(--teal);color:#fff;padding:9px 14px;font-size:12px;font-weight:650;line-height:1.4;text-decoration:none}
+.button:hover{background:#0c4d3e}
+.button.secondary{background:var(--white);border-color:#b9ccc2;color:var(--ink)}
+.button.secondary:hover{background:var(--teal-light)}
+.filters{display:grid;grid-template-columns:1.65fr .7fr 1fr 1fr auto;gap:12px;align-items:end;background:#e9eeE9;padding:18px;border:1px solid var(--line);border-radius:12px}
+.filters>div{min-width:0}
+.filters label{display:block;font-size:11px;font-weight:700;margin-bottom:7px}
+.filters input,.filters select{width:100%;height:42px;border:1px solid #a8bab0;border-radius:6px;background:#fff;padding:8px 10px;font-size:12px;color:var(--ink)}
+.filters input::placeholder{color:#60706a}
+.result-count{font-size:12px;color:var(--muted);margin:14px 0 18px}
+.findings-list{display:grid;gap:24px}
+.finding{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px 30px;scroll-margin-top:20px}
+.finding-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.finding-tags{display:flex;align-items:center;gap:12px}
+.badge{font-size:10px;line-height:1.5;padding:5px 9px;border-radius:5px;font-weight:750;letter-spacing:.25px;text-transform:uppercase}
+.badge.high{background:var(--high-bg);color:var(--high)}
+.badge.medium{background:var(--medium-bg);color:var(--medium)}
+.badge.low{background:var(--low-bg);color:var(--low)}
+.rule-id,.finding-number{font-family:var(--mono);color:var(--muted);font-size:11px}
+.finding-number{border-left:1px solid var(--line);padding-left:12px}
+.permalink{font-family:var(--mono);padding:4px 10px;text-decoration:none;font-size:17px}
+.finding h3{margin-bottom:12px}
+.finding-problem{color:var(--muted);font-size:14px;max-width:940px}
+.location{position:relative;margin:20px 0 16px;background:var(--paper);border-left:3px solid #9bb3a4;padding:14px 17px}
+.location .eyebrow{font-size:9px;letter-spacing:1.2px}
+.location p{margin:4px 0 0;overflow-wrap:anywhere}
+.location code{font-size:12px}
+.line-number{font-size:11px;color:var(--muted);margin-left:14px;display:inline-block}
+.location .full-location{margin-top:6px;color:var(--muted)}
+.full-location code{font-size:10px}
+.text-button{display:inline-block;min-height:32px;border:0;padding:2px 0;margin-top:6px;background:transparent;color:var(--teal);text-decoration:underline;text-underline-offset:3px;font-size:11px;font-weight:650}
+.source-block{border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.source-block .code-label{background:#f0f4f0;border-bottom:1px solid var(--line);margin:0;padding:8px 15px}
+.source-block pre{padding:15px 17px;background:#fbfcfa}
+.code-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--muted);margin-bottom:11px}
+.guidance-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin:25px 0}
+.guidance-grid p{font-size:13px;color:var(--muted);margin-bottom:0}
+.example-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:20px 0 12px}
+.example-heading h4{margin-bottom:0}
+.example-heading span{font-size:10px;color:var(--muted)}
+.examples{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.examples>div{min-width:0;border-radius:8px;border:1px solid var(--line);background:#f5f6f3;padding:15px 17px}
+.examples>.after{background:#ecf5ee;border-color:#b7d0bf}
+.after .code-label{color:#226444}
+.examples pre code{font-size:12px}
+.verification{margin-top:21px;padding:17px 20px;border-left:3px solid var(--teal);background:#f3f8f4}
+.verification h4{font-size:13px}
+.verification p{font-size:13px;color:var(--muted);margin:0}
+.context-note{font-size:12px;color:var(--muted);margin:17px 0}
+.context-note strong{color:var(--ink)}
+.references{border-top:1px solid var(--line);padding-top:14px;font-size:12px}
+.references summary{cursor:pointer;font-weight:600;min-height:28px}
+.references p{margin-top:14px}
+.references ul{padding-left:20px;margin-bottom:0}
+.references li{margin-block:6px}
+.finding-actions{display:flex;align-items:center;gap:14px;margin-top:21px}
+.finding-actions>span{font-size:11px;color:var(--muted)}
+.empty-state{border:1px dashed #9fb4a8;border-radius:var(--radius);background:#f9fbf7;padding:38px;max-width:100%}
+.empty-state p{max-width:750px;color:var(--muted)}
+.empty-state h3{font-size:24px}
+.empty-state a{font-size:14px;font-weight:650}
+.manual-section{margin-top:66px;padding:36px;border:1px solid #b7ccc0;border-radius:var(--radius);background:#eaf1e9}
+.section-intro{max-width:800px;color:var(--muted);font-size:14px}
+.checklist{padding:0;margin:26px 0 0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
+.checklist li{border-top:1px solid #c4d3c7;padding:16px 0;font-size:13px}
+.checklist label{display:flex;align-items:flex-start;gap:12px;cursor:pointer}
+.checklist input{flex-shrink:0;width:18px;height:18px;margin:2px 0 0;accent-color:var(--teal)}
+.small-note{font-size:11px;color:var(--muted);margin:14px 0 0}
+.scope-section{margin-top:55px}
+.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;margin-top:28px}
+.scope-grid h3{font-size:15px;margin-bottom:14px}
+.scope-grid p{color:var(--muted);font-size:13px}
+.path-list{font-size:13px;margin:0;padding-left:20px;overflow-wrap:anywhere}
+.path-list li{padding-bottom:8px}
+.file-inventory{border-top:1px solid var(--line);margin-top:20px;padding-top:16px;font-size:12px}
+.file-inventory summary{min-height:34px;cursor:pointer;font-weight:650}
+.file-inventory ul{margin-top:12px}
+.footer{display:flex;justify-content:space-between;gap:24px;color:var(--muted);border-top:1px solid var(--line);padding-block:25px;margin-top:42px;font-size:10px}
+.copy-feedback:not(:empty){position:fixed;bottom:24px;left:50%;transform:translateX(-50%);max-width:calc(100% - 40px);padding:12px 20px;border-radius:8px;background:var(--ink);color:#fff;font-size:13px;box-shadow:0 4px 20px #172e2b33;z-index:3}
+.skip-link{position:absolute;left:20px;top:-100px;padding:12px;background:var(--white);z-index:10}
+.skip-link:focus{top:12px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+dialog{border:1px solid var(--line);border-radius:14px;padding:28px;max-width:660px;width:calc(100% - 32px);color:var(--ink);background:white}
+dialog::backdrop{background:#172e2b88}
+dialog h2{font-size:22px}
+dialog p{font-size:14px;color:var(--muted)}
+dialog textarea{width:100%;margin-bottom:18px;padding:12px;border:1px solid #91a799;border-radius:6px;font-family:var(--mono);font-size:12px}
+
+.source-current{background:#e0ecd6;color:#173b24;font-weight:650}
+
+@media(max-width:980px){.wrap{width:calc(100% - 48px)}
+.hero{gap:34px}
+.hero h1{font-size:47px}
+.summary-panel h2{font-size:25px}
+.filters{grid-template-columns:1.5fr 1fr 1fr}
+.filters .search-field{grid-column:span 2}
+.stat{padding:16px}
+.stat:before{right:16px;top:19px}
+.stat-label{font-size:11px}
+.masthead nav{gap:17px;font-size:12px}
+.examples pre code{font-size:11px}
+}
+
+@media(max-width:650px){.wrap{width:calc(100% - 32px)}
+.masthead{display:block;padding-block:20px}
+.masthead nav{margin-top:22px;gap:21px;flex-wrap:wrap}
+.hero{grid-template-columns:1fr;gap:28px;padding-block:35px 27px}
+.hero h1{font-size:45px}
+.hero-description{font-size:14px}
+.summary-panel{padding-left:18px}
+.summary-panel h2{max-width:none;font-size:25px}
+.summary-panel .timestamp{margin-top:15px}
+.stats{grid-template-columns:1fr 1fr}
+.stat strong{font-size:34px}
+.scope-note{margin-bottom:36px}
+.section-heading{align-items:flex-start;flex-direction:column;gap:15px}
+h2{font-size:25px}
+.filters{grid-template-columns:1fr 1fr;padding:14px}
+.filters .search-field{grid-column:span 2}
+.filters>div:nth-child(4){grid-column:span 2}
+.filters>.button{grid-column:span 2}
+.finding{padding:20px 18px}
+.finding h3{font-size:22px}
+.finding-tags{gap:8px}
+.badge{font-size:9px}
+.location{padding:12px}
+.line-number{display:block;margin:4px 0 0}
+.guidance-grid,.examples,.scope-grid,.checklist{grid-template-columns:1fr;gap:18px}
+.guidance-grid{margin-block:21px}
+.example-heading{align-items:flex-start;flex-direction:column;gap:5px}
+.finding-actions{align-items:flex-start;flex-direction:column;gap:7px}
+.manual-section{padding:25px 20px;margin-top:40px}
+.checklist{gap:0}
+.footer{flex-direction:column;gap:6px}
+.empty-state{padding:25px}
+.source-block pre{padding:12px}
+.examples pre code{font-size:12px}
+}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+}
+
+@media print{@page{margin:15mm}
+body{font-size:10pt;background:#fff;color:#000}
+.wrap{width:100%}
+.masthead{padding-top:0;padding-bottom:15px}
+.masthead nav,.interactive,.skip-link,.permalink,.copy-feedback,dialog,noscript,#no-matches{display:none!important}
+.hero{gap:30px;padding:25px 0}
+.hero h1{font-size:33pt}
+.hero-description{font-size:10pt}
+.summary-panel h2{font-size:20pt}
+.stats{gap:8px}
+.stat{padding:12px}
+.stat strong{font-size:25pt}
+.scope-note{margin-bottom:25px}
+.finding{break-inside:auto;margin-bottom:20px;border-color:#a5b5aa;padding:18px}
+.finding[hidden]{display:block!important}
+.finding h3,.finding-top,.location,.guidance-grid,.source-block,.examples,.verification,.context-note{break-inside:avoid}
+.finding h3{font-size:17pt}
+.finding p{font-size:9pt}
+.finding-actions{display:none}
+.findings-list{display:block}
+.references{display:block}
+.references>*{display:block}
+.references summary{list-style:none}
+.references p,.references ul{display:block!important}
+.manual-section{margin-top:30px;padding:22px;break-inside:avoid}
+.scope-section{margin-top:30px}
+.footer{margin-top:25px}
+a{color:inherit}
+pre code,.examples pre code{font-size:8pt}
+.examples{gap:10px}
+.section-heading{break-after:avoid}
+.file-inventory[open] .path-list{display:block}
+.badge,.after,.verification,.stat{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o relatório</a>
+  <header class="masthead wrap">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">a11y</span><span>Swift Accessibility Checker<span class="brand-subtitle">Relatório para desenvolvimento</span></span></div>
+    <nav aria-label="Seções do relatório"><a href="#findings">Ocorrências</a><a href="#manual">Validação manual</a><a href="#scope">Escopo</a></nav>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="report-title">
+      <div><p class="eyebrow">Código mais acessível, ajuste por ajuste</p><h1 id="report-title">Revisão de<br>acessibilidade<span class="accent">.</span></h1><p class="hero-description">Encontre o ponto no código, entenda o impacto para quem usa o app e revise a correção sugerida.</p></div>
+      <div class="summary-panel"><span class="eyebrow">Nesta execução</span><h2>Nenhuma ocorrência nas regras verificadas</h2><p>O código analisado não acionou as regras desta ferramenta. Continue com a validação manual para revisar a experiência real no app.</p><p class="timestamp">Gerado em <time datetime="2026-10-04T21:13:33Z">2026-10-04 21:13:33 UTC</time></p></div>
+    </section>
+    <div class="stats" aria-label="Resumo da análise">
+      <div class="stat high"><span class="stat-label">Prioridade alta</span><strong>0</strong><span class="stat-detail">Revise primeiro</span></div>
+      <div class="stat medium"><span class="stat-label">Prioridade média</span><strong>0</strong><span class="stat-detail">Planeje os ajustes</span></div>
+      <div class="stat low"><span class="stat-label">Prioridade baixa</span><strong>0</strong><span class="stat-detail">Confira o contexto</span></div>
+      <div class="stat files"><span class="stat-label">Arquivos analisados</span><strong>2</strong><span class="stat-detail">0 com ocorrências</span></div>
+    </div>
+    
+    <p class="scope-note"><strong>Como interpretar.</strong> Esta análise estática identifica padrões de risco no código SwiftUI; não executa o app nem certifica conformidade com todas as diretrizes Apple ou WCAG. Os achados precisam de revisão no contexto da interface. A ausência de avisos não garante acessibilidade. Prioridade indica a ordem sugerida de revisão; confirme cada ocorrência no contexto da interface.</p>
+    <section id="findings" aria-labelledby="findings-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / Revisar o código</p><h2 id="findings-title">Ocorrências <span class="count">0</span></h2></div><button class="button secondary interactive" id="print-report" type="button" hidden>Imprimir / salvar PDF</button></div>
+      <div class="filters interactive" hidden>
+        <div class="search-field"><label for="search">Buscar no relatório</label><input id="search" type="search" placeholder="Arquivo, regra, código ou orientação…" autocomplete="off"></div>
+        <div><label for="severity-filter">Prioridade</label><select id="severity-filter"><option value="">Todas</option><option value="high">Alta</option><option value="medium">Média</option><option value="low">Baixa</option></select></div>
+        <div><label for="rule-filter">Regra</label><select id="rule-filter"><option value="">Todas as regras</option></select></div>
+        <div><label for="file-filter">Arquivo</label><select id="file-filter"><option value="">Todos os arquivos</option></select></div>
+        <button class="button secondary" type="button" id="clear-filters">Limpar filtros</button>
+      </div>
+      <p id="result-count" class="result-count interactive" role="status" aria-live="polite" hidden>0 de 0 ocorrências · prioridade alta primeiro</p>
+      <noscript><p class="scope-note">Todas as ocorrências estão disponíveis abaixo. Para buscar, use a busca do navegador; para compartilhar, selecione e copie o texto.</p></noscript>
+      <div class="findings-list"><div class="empty-state">
+  <span class="eyebrow">Próxima etapa</span>
+  <h3>Nenhuma ocorrência nas regras verificadas</h3>
+  <p>O código analisado não acionou as regras desta ferramenta. Continue com a validação manual para revisar a experiência real no app.</p>
+  <a href="#manual">Ir para a validação manual <span aria-hidden="true">↗</span></a>
+</div></div>
+      <div id="no-matches" class="empty-state" hidden><h3>Nenhuma ocorrência corresponde aos filtros</h3><p>Tente outro termo ou limpe os filtros para voltar à lista completa.</p><button class="button" type="button" id="reset-empty">Mostrar todas as ocorrências</button></div>
+    </section>
+    <section id="manual" class="manual-section" aria-labelledby="manual-title">
+      <div class="section-heading"><div><p class="eyebrow">02 / Validar no app</p><h2 id="manual-title">O código é parte da revisão.</h2></div></div>
+      <p class="section-intro">Depois dos ajustes, rode a ferramenta novamente e teste os principais fluxos no dispositivo ou simulador. Esta lista ajuda a revisar o que a análise estática não confirma.</p>
+      <ul class="checklist"><li><label><input type="checkbox" id="manual-0"><span>VoiceOver: percorra os fluxos principais e confira nomes, estados, ordem de foco, agrupamento e anúncios de mudanças.</span></label></li>
+<li><label><input type="checkbox" id="manual-1"><span>Dynamic Type: teste os maiores tamanhos de acessibilidade, textos longos e os idiomas suportados, sem cortes ou sobreposição.</span></label></li>
+<li><label><input type="checkbox" id="manual-2"><span>Contraste e cor: confira textos, ícones e estados nos temas claro e escuro; toda informação por cor também precisa de outro indicador.</span></label></li>
+<li><label><input type="checkbox" id="manual-3"><span>Interação: valide áreas de toque, teclado, Controle por Voz e Controle Assistivo nos dispositivos e plataformas suportados.</span></label></li>
+<li><label><input type="checkbox" id="manual-4"><span>Movimento e mídia: respeite Reduzir Movimento e revise legendas, transcrições e alternativas para conteúdo audiovisual quando houver.</span></label></li>
+<li><label><input type="checkbox" id="manual-5"><span>Validação: execute o Accessibility Inspector, registre os resultados e teste os fluxos com pessoas que usam tecnologias assistivas.</span></label></li></ul>
+      <p class="small-note">As marcações servem para esta sessão e não são salvas no arquivo. Registre os resultados no processo de revisão do time.</p>
+    </section>
+    <section id="scope" class="scope-section" aria-labelledby="scope-title">
+      <div class="section-heading"><div><p class="eyebrow">03 / Conferir a cobertura</p><h2 id="scope-title">Escopo desta execução</h2></div></div>
+      <div class="scope-grid"><div><h3>Entradas solicitadas</h3><ul class="path-list"><li><code>/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/Corrigido/ContentView.swift</code></li><li><code>/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/Shared/App.swift</code></li></ul></div><div><h3>Sobre este relatório</h3><p>2 arquivos analisados · 0 arquivos com ocorrências.</p><p>As localizações apontam para o código no momento da análise; execute novamente após editar. Os exemplos são ilustrativos e precisam ser adaptados ao comportamento da sua interface.</p></div></div>
+      <details class="file-inventory"><summary>Ver lista de arquivos analisados (2)</summary><ul class="path-list"><li><code>/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/Corrigido/ContentView.swift</code></li>
+<li><code>/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/Demos/ListaCompras/Shared/App.swift</code></li></ul></details>
+    </section>
+  </main>
+  <footer class="wrap footer"><span>Swift Accessibility Checker</span><span>Análise estática · revisão humana · teste no app</span></footer>
+  <div id="copy-feedback" class="copy-feedback" role="status" aria-live="polite"></div>
+  <dialog id="copy-dialog" aria-labelledby="copy-title"><h2 id="copy-title">Copie o texto selecionado</h2><p>Seu navegador não permitiu a cópia automática. Use ⌘C no macOS ou Ctrl+C no Windows/Linux.</p><label class="sr-only" for="copy-text">Texto para copiar</label><textarea id="copy-text" readonly rows="12"></textarea><button class="button" id="close-copy" type="button">Fechar</button></dialog>
+  <script>(() => {
+  'use strict';
+  const cards = Array.from(document.querySelectorAll('.finding'));
+  const search = document.getElementById('search');
+  const severity = document.getElementById('severity-filter');
+  const rule = document.getElementById('rule-filter');
+  const file = document.getElementById('file-filter');
+  const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR');
+  const searchable = new Map(cards.map(card => [card, normalize(card.textContent)]));
+  const count = document.getElementById('result-count');
+  const filter = () => {
+    const terms = normalize(search.value).trim().split(/\s+/).filter(Boolean);
+    let visible = 0;
+    cards.forEach(card => {
+      const matches = (!severity.value || card.dataset.severity === severity.value)
+        && (!rule.value || card.dataset.rule === rule.value)
+        && (!file.value || card.dataset.file === file.value)
+        && terms.every(term => searchable.get(card).includes(term));
+      card.hidden = !matches;
+      if (matches) visible += 1;
+    });
+    count.textContent = `${visible} de ${cards.length} ocorrências · prioridade alta primeiro`;
+    document.getElementById('no-matches').hidden = cards.length === 0 || visible > 0;
+  };
+  const reset = () => {
+    search.value = severity.value = rule.value = file.value = '';
+    filter();
+    search.focus();
+  };
+  search.addEventListener('input', filter);
+  [severity, rule, file].forEach(control => control.addEventListener('change', filter));
+  document.getElementById('clear-filters').addEventListener('click', reset);
+  document.getElementById('reset-empty').addEventListener('click', reset);
+  document.getElementById('print-report').addEventListener('click', () => window.print());
+  const feedback = document.getElementById('copy-feedback');
+  const copyDialog = document.getElementById('copy-dialog');
+  const copyField = document.getElementById('copy-text');
+  let feedbackTimer;
+  const announce = message => {
+    clearTimeout(feedbackTimer);
+    feedback.textContent = message;
+    feedbackTimer = setTimeout(() => { feedback.textContent = ''; }, 6000);
+  };
+  const copy = async (text, trigger, message) => {
+    try {
+      if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(text);
+      announce(message);
+    } catch (_) {
+      const temporary = document.createElement('textarea');
+      temporary.value = text;
+      temporary.setAttribute('aria-label', 'Texto para copiar');
+      temporary.style.position = 'fixed';
+      temporary.style.opacity = '0';
+      document.body.appendChild(temporary);
+      temporary.select();
+      let copied = false;
+      try { copied = document.execCommand('copy'); } catch (_) { /* Use the manual fallback below. */ }
+      temporary.remove();
+      trigger.focus();
+      if (copied) { announce(message); return; }
+      copyField.value = text;
+      if (typeof copyDialog.showModal === 'function') copyDialog.showModal();
+      else copyDialog.setAttribute('open', '');
+      copyField.focus();
+      copyField.select();
+    }
+  };
+  document.getElementById('close-copy').addEventListener('click', () => {
+    if (typeof copyDialog.close === 'function') copyDialog.close();
+    else copyDialog.removeAttribute('open');
+  });
+  cards.forEach(card => {
+    const locationButton = card.querySelector('.copy-location');
+    locationButton.addEventListener('click', () => copy(card.querySelector('.full-location').textContent, locationButton, 'Localização copiada.'));
+    const ticketButton = card.querySelector('.copy-ticket');
+    ticketButton.addEventListener('click', () => copy(card.querySelector('.ticket-source').textContent, ticketButton, 'Resumo copiado para sua tarefa.'));
+  });
+  // Print the full report even when filters are active, then restore the view.
+  let printDetails = [];
+  window.addEventListener('beforeprint', () => {
+    printDetails = Array.from(document.querySelectorAll('.references')).map(item => [item, item.open]);
+    printDetails.forEach(([item]) => { item.open = true; });
+  });
+  window.addEventListener('afterprint', () => {
+    printDetails.forEach(([item, open]) => { item.open = open; });
+  });
+  // Reveal controls only after their behavior is ready; the report itself needs no script.
+  document.querySelectorAll('.interactive').forEach(element => { element.hidden = false; });
+  if (!cards.length) document.querySelector('.filters').hidden = true;
+})();</script>
+</body>
+</html>
