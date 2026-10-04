@@ -50,7 +50,8 @@ private final class FixedFontSizeVisitor: SyntaxVisitor {
             let systemMember = systemCall.calledExpression.as(MemberAccessExprSyntax.self),
             systemMember.declName.baseName.text == "system",
             isSupportedSystemBase(systemMember.base),
-            systemCall.arguments.contains(where: { $0.label?.text == "size" })
+            systemCall.arguments.contains(where: { $0.label?.text == "size" }),
+            !isImageChain(fontMember.base)
         else {
             return .visitChildren
         }
@@ -81,5 +82,23 @@ private final class FixedFontSizeVisitor: SyntaxVisitor {
         }
 
         return reference.baseName.text == "Font"
+    }
+
+    // A font applied to a symbol changes its visual size; it is not a fixed text
+    // size. Follow only the receiver chain, never nested children of a container.
+    private func isImageChain(_ expression: ExprSyntax?) -> Bool {
+        guard let call = expression?.as(FunctionCallExprSyntax.self) else {
+            return false
+        }
+
+        if let reference = call.calledExpression.as(DeclReferenceExprSyntax.self) {
+            return reference.baseName.text == "Image"
+        }
+
+        if let modifier = call.calledExpression.as(MemberAccessExprSyntax.self) {
+            return isImageChain(modifier.base)
+        }
+
+        return false
     }
 }

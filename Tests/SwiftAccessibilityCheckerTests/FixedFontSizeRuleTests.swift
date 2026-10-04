@@ -55,6 +55,20 @@ struct FixedFontSizeRuleTests {
         #expect(diagnostics.isEmpty)
     }
 
+    @Test("Does not mistake an image symbol size for a fixed text size")
+    func doesNotDetectImageFont() {
+        let source = """
+        Image(systemName: "xmark").font(.system(size: 12))
+        Image(systemName: "plus").resizable().font(.system(size: 20))
+        Text("Save").font(.system(size: 16))
+        """
+
+        let diagnostics = analyzer.analyze(source: source, filePath: "Toolbar.swift")
+
+        #expect(diagnostics.count == 1)
+        #expect(diagnostics.first?.line == 3)
+    }
+
     @Test("Reports the line and column of the font modifier")
     func reportsLocationOfFontModifierPeriod() {
         let source = """
