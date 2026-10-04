@@ -86,7 +86,7 @@ struct ReporterTests {
           "inputPaths" : [
             "ProfileView.swift"
           ],
-          "schemaVersion" : "1.0",
+          "schemaVersion" : "1.1",
           "summary" : {
             "byRule" : {
               "SAC003" : 1

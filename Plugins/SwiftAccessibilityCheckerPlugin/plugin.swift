@@ -17,7 +17,8 @@ struct SwiftAccessibilityCheckerPlugin: BuildToolPlugin {
         return makeBuildCommands(
             executable: executable,
             swiftFiles: swiftFiles,
-            targetName: target.name
+            targetName: target.name,
+            workDirectory: context.pluginWorkDirectoryURL
         )
     }
 }
@@ -25,7 +26,8 @@ struct SwiftAccessibilityCheckerPlugin: BuildToolPlugin {
 private func makeBuildCommands(
     executable: URL,
     swiftFiles: [URL],
-    targetName: String
+    targetName: String,
+    workDirectory: URL
 ) -> [Command] {
     let sortedSwiftFiles = swiftFiles
         .filter { $0.pathExtension == "swift" }
@@ -39,7 +41,13 @@ private func makeBuildCommands(
         .buildCommand(
             displayName: "Checking Swift accessibility in \(targetName)",
             executable: executable,
-            arguments: sortedSwiftFiles.map(\.path),
+            arguments: [
+                "--report-directory",
+                workDirectory.appendingPathComponent("SwiftAccessibilityReport").path,
+                "--"
+            ] + sortedSwiftFiles.map(\.path),
+            // Reports are private build artifacts, not generated app resources.
+            // Declaring HTML/JSON in outputFiles can bundle source excerpts in the app.
             inputFiles: sortedSwiftFiles
         )
     ]
@@ -61,7 +69,8 @@ extension SwiftAccessibilityCheckerPlugin: XcodeBuildToolPlugin {
         return makeBuildCommands(
             executable: executable,
             swiftFiles: swiftFiles,
-            targetName: target.displayName
+            targetName: target.displayName,
+            workDirectory: context.pluginWorkDirectoryURL
         )
     }
 }

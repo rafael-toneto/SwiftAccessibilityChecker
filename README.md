@@ -2,7 +2,8 @@
 
 Ferramenta de análise estática para antecipar riscos de acessibilidade em código SwiftUI.
 O checker percorre a árvore sintática com SwiftSyntax, aplica nove regras e gera warnings
-clicáveis no Xcode ou relatórios estruturados em JSON. Os diagnósticos são indícios para
+clicáveis no Xcode e relatórios em português para orientar a revisão do time. O HTML
+mostra o que ajustar, onde fica o trecho e como testar a correção. Os diagnósticos são indícios para
 revisão: não certificam conformidade nem substituem Accessibility Inspector, testes com
 tecnologias assistivas, especialistas ou pessoas usuárias.
 
@@ -43,22 +44,63 @@ renderizada e precisa de revisão humana.
 
 O package usa SwiftSyntax 602.0.0, correspondente à linha da toolchain Swift 6.2.
 
-## Uso
+## Comece pelo relatório
+
+No terminal, dentro da pasta deste package:
 
 ```bash
 swift build
-swift test
-swift run swift-accessibility-checker Fixtures/InaccessibleExample.swift
-swift run swift-accessibility-checker Fixtures
-swift run swift-accessibility-checker --format json Fixtures
-swift run swift-accessibility-checker --format json --output report.json Fixtures
+swift run swift-accessibility-checker --report-directory Relatorios Fixtures
+open Relatorios/report.html
 ```
 
-Também é possível informar vários arquivos explicitamente. Esse modo é usado
-internamente pelo Build Tool Plugin:
+Para analisar um projeto real, substitua `Fixtures` pela pasta de fontes Swift do app
+ou passe somente os arquivos do target. Evite incluir dependências, cópias de testes e
+versões antigas do mesmo código. A execução não modifica os arquivos analisados.
+
+`--report-directory` faz uma única análise e grava estes cinco arquivos:
+
+| Arquivo | Quando usar |
+| --- | --- |
+| `report.html` | Revisão no navegador, com resumo, filtros e explicações dos avisos. Abre offline. |
+| `report.md` | Anexar a uma tarefa, revisão de código ou documentação do time. |
+| `report.txt` | Ler as explicações diretamente no terminal ou em qualquer editor. |
+| `report.json` | Integrações, automações e comparação de resultados. |
+| `warnings.txt` | Mensagens no formato reconhecido pelo Xcode. |
+
+O HTML, Markdown e texto apresentam cada aviso em português: problema, impacto,
+arquivo/linha/coluna, trecho encontrado, orientação de ajuste, exemplo ilustrativo e
+validação manual. Os exemplos precisam ser adaptados ao contexto do aplicativo; não
+são alterações automáticas no código. Comece pela prioridade alta e confirme os avisos
+que dependem do layout ou do comportamento em execução.
+
+Use o **[guia do piloto](docs/PILOTO.md)** para testar em um projeto do time e registrar
+feedback. Os aplicativos de demonstração em `Demos` permitem comparar versões
+com problemas e corrigidas pelo painel `Reports/index.html`.
+
+## Outros modos de uso
 
 ```bash
+# Ajuda e opções disponíveis
+swift run swift-accessibility-checker --help
+
+# Warnings clicáveis no Xcode (formato padrão)
+swift run swift-accessibility-checker Fixtures/InaccessibleExample.swift
+
+# Somente um formato, salvo em arquivo
+swift run swift-accessibility-checker --format html --output Relatorios/revisao.html Fixtures
+swift run swift-accessibility-checker --format markdown --output Relatorios/revisao.md Fixtures
+swift run swift-accessibility-checker --format text Fixtures
+swift run swift-accessibility-checker --format json --output Relatorios/revisao.json Fixtures
+
+# Vários arquivos explícitos, como no Build Tool Plugin
 swift run swift-accessibility-checker ViewA.swift ViewB.swift
+
+# Testes da ferramenta
+swift test
+
+# Testes de aceitação da CLI, passando o executável compilado
+python3 scripts/test_cli.py /caminho/para/swift-accessibility-checker
 ```
 
 Warnings seguem o formato reconhecido pelo Xcode:
@@ -67,19 +109,28 @@ Warnings seguem o formato reconhecido pelo Xcode:
 <caminho>:<linha>:<coluna>: warning: <mensagem> [<regra>] [<severidade>]
 ```
 
-Warnings não alteram o código de saída. Erros de uso, caminhos inválidos ou uma falha
-que impeça toda a análise retornam um código diferente de zero.
+Warnings não alteram o código de saída. Erros de uso, caminhos inválidos, falhas de
+leitura ou de geração do relatório retornam um código diferente de zero. Quando parte
+dos arquivos pode ser analisada, o relatório preserva os resultados e identifica os
+arquivos que ficaram de fora. Não interprete um relatório parcial como uma análise
+completa do projeto.
 
 ## Relatórios e severidade
 
 O formato padrão é `xcode`, preservando a integração com o terminal e o Issue Navigator.
-O formato `json` usa um esquema versionado e inclui:
+O formato `json` usa um esquema versionado (`1.1`) e inclui:
 
 - entradas e arquivos efetivamente analisados;
 - total de diagnósticos e contagens por regra e severidade;
 - regra, título, descrição, severidade, arquivo, linha e coluna;
 - trecho da linha sinalizada, justificativa, sugestão e referências normativas;
+- contexto de linhas próximas ao aviso no campo opcional `sourceContext`;
 - data da execução em ISO 8601.
+- problemas de descoberta/leitura em `analysisIssues`, quando houver.
+
+Os campos anteriores do JSON continuam disponíveis. Os textos dos diagnósticos nesse
+formato preservam o contrato existente; a orientação em português é apresentada nos
+formatos HTML, Markdown e texto.
 
 As severidades representam o impacto esperado para priorização e avaliação acadêmica:
 
@@ -93,8 +144,9 @@ Todas são apresentadas como `warning` no Xcode. A análise é estática e indic
 isso, uma severidade alta não é convertida em erro de compilação nem certifica uma
 violação definitiva.
 
-Os diagnósticos são ordenados por arquivo, linha, coluna e regra. Essa ordenação e as
-chaves JSON ordenadas tornam relatórios equivalentes fáceis de comparar entre execuções.
+Os relatórios para leitura humana priorizam os avisos de maior impacto. JSON e warnings
+continuam ordenados por arquivo, linha, coluna e regra. Essa ordenação e as chaves JSON
+ordenadas facilitam comparações entre execuções; a data muda a cada análise.
 
 ## Instalação local em um projeto Xcode
 
@@ -103,7 +155,7 @@ chaves JSON ordenadas tornam relatórios equivalentes fáceis de comparar entre 
 3. Escolha **Add Local...** e selecione a pasta deste package:
 
    ```text
-   /Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker
+   /caminho/para/SwiftAccessibilityChecker
    ```
 
 4. Selecione o target do aplicativo e abra **Build Phases**.
@@ -122,13 +174,29 @@ O plugin recebe somente os arquivos Swift pertencentes ao target em que foi
 adicionado. Projetos com mais de um target precisam adicionar o plugin a cada target
 que deve ser analisado.
 
-Na primeira compilação, depois de um Clean Build ou quando os arquivos Swift do target
-mudam, o build executa o checker sem gerar ou modificar arquivos do aplicativo e exibe
+Quando o build executa o checker, ele analisa os arquivos Swift do target e exibe
 diagnósticos clicáveis no Issue Navigator:
 
 ```text
 /path/ProfileView.swift:18:9: warning: Fixed font size may not support Dynamic Type [SAC003] [medium]
 ```
+
+O plugin também gera os cinco formatos na pasta `SwiftAccessibilityReport` do seu
+diretório de trabalho de build. No **Report Navigator** (**⌘9**), abra o log da fase
+do checker e procure `SwiftAccessibilityChecker: relatório disponível em`. Copie o
+caminho exibido e abra o `report.html` no navegador, por exemplo com `open "caminho"`.
+
+Esses relatórios são intermediários privados do build: podem ser removidos ao limpar
+os artefatos do Xcode. Para guardar uma revisão ou compartilhar com o time, copie os
+arquivos desejados ou gere uma pasta própria pela CLI com `--report-directory`.
+Os relatórios contêm caminhos e trechos do código; confira o conteúdo antes de
+compartilhá-los fora do time.
+
+O plugin não declara o HTML, JSON e demais relatórios como recursos do target, para
+evitar que sejam incluídos no aplicativo distribuído. Algumas versões do Xcode podem
+exibir um aviso de infraestrutura por essa fase não declarar arquivos de saída. Esse
+aviso não é um diagnóstico `SAC`. Para uma análise explícita, use a CLI; no Xcode,
+um **Product > Clean Build Folder** seguido de build também permite refazer a execução.
 
 A primeira execução pode ser mais demorada porque o Xcode precisa compilar a ferramenta
 de host e sua dependência de SwiftSyntax; as execuções seguintes reutilizam esse build.
@@ -151,7 +219,7 @@ Um package consumidor pode ativar o plugin em targets específicos:
 let package = Package(
     dependencies: [
         .package(
-            path: "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker"
+            path: "../SwiftAccessibilityChecker"
         )
     ],
     targets: [

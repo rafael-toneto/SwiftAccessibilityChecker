@@ -1,5 +1,19 @@
 import Foundation
 
+/// Files or directories that could not be inspected. These are execution failures,
+/// separate from accessibility findings, so a partial scan cannot look clean.
+public struct AnalysisIssue: Codable, Equatable, Sendable {
+    public let filePath: String
+    public let message: String
+    public let stage: String
+
+    public init(filePath: String, message: String, stage: String) {
+        self.filePath = filePath
+        self.message = message
+        self.stage = stage
+    }
+}
+
 public struct AnalysisSummary: Codable, Equatable, Sendable {
     public let totalIssues: Int
     public let bySeverity: [String: Int]
@@ -19,7 +33,7 @@ public struct AnalysisSummary: Codable, Equatable, Sendable {
 }
 
 public struct AnalysisResult: Codable, Equatable, Sendable {
-    public static let currentSchemaVersion = "1.0"
+    public static let currentSchemaVersion = "1.1"
     public static let toolName = "Swift Accessibility Checker"
 
     public let schemaVersion: String
@@ -29,12 +43,15 @@ public struct AnalysisResult: Codable, Equatable, Sendable {
     public let analyzedFiles: [String]
     public let summary: AnalysisSummary
     public let diagnostics: [Diagnostic]
+    /// Absent in legacy reports and complete scans; decoding schema 1.0 still works.
+    public let analysisIssues: [AnalysisIssue]?
 
     public init(
         generatedAt: Date = Date(),
         inputPaths: [String],
         analyzedFiles: [String],
-        diagnostics: [Diagnostic]
+        diagnostics: [Diagnostic],
+        analysisIssues: [AnalysisIssue] = []
     ) {
         let sortedDiagnostics = diagnostics.sorted {
             ($0.filePath, $0.line, $0.column, $0.ruleIdentifier)
@@ -48,5 +65,8 @@ public struct AnalysisResult: Codable, Equatable, Sendable {
         self.analyzedFiles = analyzedFiles.sorted()
         self.summary = AnalysisSummary(diagnostics: sortedDiagnostics)
         self.diagnostics = sortedDiagnostics
+        self.analysisIssues = analysisIssues.isEmpty ? nil : analysisIssues.sorted {
+            ($0.filePath, $0.stage, $0.message) < ($1.filePath, $1.stage, $1.message)
+        }
     }
 }

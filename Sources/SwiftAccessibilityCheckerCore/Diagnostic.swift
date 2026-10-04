@@ -44,6 +44,16 @@ public struct AccessibilityRuleDefinition: Equatable, Sendable {
     }
 }
 
+public struct SourceContextLine: Codable, Equatable, Sendable {
+    public let line: Int
+    public let text: String
+
+    public init(line: Int, text: String) {
+        self.line = line
+        self.text = text
+    }
+}
+
 public struct Diagnostic: Codable, Equatable, Sendable {
     public let ruleIdentifier: String
     public let title: String
@@ -53,6 +63,7 @@ public struct Diagnostic: Codable, Equatable, Sendable {
     public let line: Int
     public let column: Int
     public let sourceExcerpt: String?
+    public let sourceContext: [SourceContextLine]?
     public let rationale: String
     public let suggestion: String
     public let references: [StandardReference]
@@ -66,7 +77,8 @@ public struct Diagnostic: Codable, Equatable, Sendable {
         filePath: String,
         line: Int,
         column: Int,
-        sourceExcerpt: String? = nil
+        sourceExcerpt: String? = nil,
+        sourceContext: [SourceContextLine]? = nil
     ) {
         self.ruleIdentifier = rule.identifier
         self.title = rule.title
@@ -76,6 +88,7 @@ public struct Diagnostic: Codable, Equatable, Sendable {
         self.line = line
         self.column = column
         self.sourceExcerpt = sourceExcerpt
+        self.sourceContext = sourceContext
         self.rationale = rule.rationale
         self.suggestion = rule.suggestion
         self.references = rule.references
@@ -90,6 +103,7 @@ public struct Diagnostic: Codable, Equatable, Sendable {
         line: Int,
         column: Int,
         sourceExcerpt: String?,
+        sourceContext: [SourceContextLine]?,
         rationale: String,
         suggestion: String,
         references: [StandardReference]
@@ -102,6 +116,7 @@ public struct Diagnostic: Codable, Equatable, Sendable {
         self.line = line
         self.column = column
         self.sourceExcerpt = sourceExcerpt
+        self.sourceContext = sourceContext
         self.rationale = rationale
         self.suggestion = suggestion
         self.references = references
@@ -117,6 +132,24 @@ public struct Diagnostic: Codable, Equatable, Sendable {
             line: line,
             column: column,
             sourceExcerpt: sourceExcerpt,
+            sourceContext: sourceContext,
+            rationale: rationale,
+            suggestion: suggestion,
+            references: references
+        )
+    }
+
+    public func addingSourceContext(_ lines: [SourceContextLine]) -> Diagnostic {
+        Diagnostic(
+            ruleIdentifier: ruleIdentifier,
+            title: title,
+            description: description,
+            severity: severity,
+            filePath: filePath,
+            line: line,
+            column: column,
+            sourceExcerpt: sourceExcerpt,
+            sourceContext: lines.isEmpty ? nil : lines,
             rationale: rationale,
             suggestion: suggestion,
             references: references

@@ -27,21 +27,18 @@ public struct SwiftSourceAnalyzer {
             )
         }
 
+        let lines = source.replacingOccurrences(of: "\r\n", with: "\n")
+            .replacingOccurrences(of: "\r", with: "\n")
+            .components(separatedBy: "\n")
         return diagnostics.map { diagnostic in
-            diagnostic.addingSourceExcerpt(
-                sourceExcerpt(at: diagnostic.line, in: source)
-            )
+            let index = diagnostic.line - 1
+            guard lines.indices.contains(index) else { return diagnostic }
+            let excerpt = lines[index].trimmingCharacters(in: .whitespacesAndNewlines)
+            let context = (max(0, index - 2)...min(lines.count - 1, index + 2)).map {
+                SourceContextLine(line: $0 + 1, text: lines[$0])
+            }
+            return diagnostic.addingSourceExcerpt(excerpt.isEmpty ? nil : excerpt)
+                .addingSourceContext(context)
         }
-    }
-
-    private func sourceExcerpt(at line: Int, in source: String) -> String? {
-        guard line > 0 else { return nil }
-
-        let lines = source.split(separator: "\n", omittingEmptySubsequences: false)
-        guard lines.indices.contains(line - 1) else { return nil }
-
-        let excerpt = String(lines[line - 1])
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-        return excerpt.isEmpty ? nil : excerpt
     }
 }
