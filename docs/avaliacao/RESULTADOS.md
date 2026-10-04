@@ -55,17 +55,17 @@ O defeito da SAC003 foi corrigido em `07c2b19`, após o arquivamento dos resulta
 
 ## Execução das interfaces
 
-Os builds completos, com logs em [`evidencias/`](evidencias/), tiveram estes resultados:
+Os builds completos, com logs em [`evidencias/`](evidencias/), tiveram estes resultados. O procedimento das telas observadas está em [`INSPECAO_INTERATIVA.md`](INSPECAO_INTERATIVA.md):
 
 | App | Resultado |
 | --- | --- |
-| Mäuse | `BUILD SUCCEEDED` para simulador iOS genérico. Instalado/aberto em iPhone 17 Pro, iOS 26.5, simulador `D9DB7D76-3CCA-489B-B409-9E1506DF4746`. Capturas [tamanho padrão](evidencias/maeuse-loaded.png) e [tamanho de acessibilidade máximo](evidencias/maeuse-max-relaunch.png), após encerrar e reabrir o app. A tela inicial manteve visualmente a mesma dimensão de textos; não se observou corte ou função bloqueada nessa tela. O tamanho foi restaurado para `large`. É observação visual, **não** teste VoiceOver nem confirmação de barreira. |
+| Mäuse | `BUILD SUCCEEDED` para simulador iOS genérico. Instalado/aberto em iPhone 17 Pro, iOS 26.5, simulador `D9DB7D76-3CCA-489B-B409-9E1506DF4746`. Capturas da introdução em [tamanho padrão](evidencias/maeuse-loaded.png) e [máximo](evidencias/maeuse-max-relaunch.png), após encerrar e reabrir o app. A introdução manteve visualmente a mesma dimensão de textos, sem corte aparente. Também foram capturadas as Configurações em [padrão](evidencias/maeuse-settings-large.png) e [máximo](evidencias/maeuse-settings-max.png). A lista de opções de voz cresceu muito, enquanto “Settings”, “Done”, “Appearance” e as opções do seletor permaneceram visualmente quase iguais, coerente com as fontes fixas SAC003. A folha é rolável e o botão “Done” permaneceu disponível. Não se observou função bloqueada ou barreira confirmada. O tamanho foi restaurado para `large`. |
 | Capelo | `BUILD FAILED`: `Capelo/Game/API.swift:11` referencia `Secrets` ausente no checkout público. |
 | Expense Tracker | `BUILD FAILED`: conflito de ligação estática/dinâmica no produto da dependência Realm, antes da execução do app. |
 | RSSBud | Sem build: projeto tem fase `npm run build-inc`, dependências e App Group; comandos de terceiros não foram executados para esta análise. |
 | 100 Challenge | Sem build: requer XcodeGen, não instalado, e fluxo de autenticação/backend. |
 
-A tentativa de controle interativo do simulador pelo ambiente de interface foi impedida porque o Mac estava bloqueado. A documentação Apple informa que VoiceOver deve ser testado em aparelho físico. Portanto, **nenhum aviso externo recebeu confirmação por VoiceOver ou Accessibility Inspector**, e não se atribui barreira confirmada à amostra. A análise de código permanece válida dentro do recorte sintático.
+Após o desbloqueio do Mac, a navegação interativa pelo Device Hub exibiu “Settings”, “Add expense” e “Done” como botões na árvore acessível; “Settings” abriu a folha por ativação. Isso confirma **rótulo e ação expostos no simulador** para o controle de 38 pt candidato a omissão SAC004, mas não a dimensão da região de toque. O Accessibility Inspector foi aberto e apontado para `Simulator > Mäuse`, com todas as opções de auditoria ativadas; `Run Audit` não apresentou resultado na interface nesta sessão, portanto **não houve auditoria conclusiva**. A documentação Apple informa que VoiceOver deve ser testado em aparelho físico; não foi realizado. Nenhum aviso externo recebeu confirmação de barreira de uso por tecnologia assistiva.
 
 ## Limites imediatos
 

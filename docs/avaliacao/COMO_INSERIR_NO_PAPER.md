@@ -30,7 +30,7 @@ Usar contagens por projeto e regra; para a leitura inicial, apresentar a propor�
 
 1. **Tabela A — Projetos e seleção:** nome/domínio, licença, SHA abreviado, arquivos SwiftUI, status de build. Usar dados de [AMOSTRA.md](AMOSTRA.md) e [RESULTADOS.md](RESULTADOS.md).
 2. **Tabela B — Matriz projeto × regra:** nove colunas SAC001–SAC009 e cinco linhas, com contagens de [`matriz_por_regra.csv`](matriz_por_regra.csv). Uma segunda tabela ou nota pode trazer P/FP/I agregados por regra.
-3. **Figura A — Fluxo de evidência:** fontes → diagnóstico sintático → revisão contextual → eventual inspeção em execução, marcando explicitamente que o último passo não foi concluído para os avisos externos.
+3. **Figura A — Fluxo de evidência:** fontes → diagnóstico sintático → revisão contextual → inspeção limitada em execução, marcando que apenas telas de Mäuse foram observadas e nenhuma barreira por tecnologia assistiva foi confirmada.
 4. **Figura B — Par de exemplos:** `SAC009` pertinente em Mäuse e SAC003 em símbolo visual que motivou correção; mostrar trecho curto, aviso e decisão da revisão, com licença/crédito do repositório. Evitar reproduzir telas externas sem necessidade; se usar as capturas, identificar a tela e configuração do simulador.
 5. **Tabela C — Antes/depois da correção:** 333 avisos iniciais, 273 após ajuste; 60 removidos, todos classificados previamente como falsos positivos. Identificar o mesmo corpus como teste de regressão.
 
@@ -50,7 +50,7 @@ Usar contagens por projeto e regra; para a leitura inicial, apresentar a propor�
 - **Interna:** uma única revisão preliminar pelo agente, sem concordância entre avaliadores; decisões difíceis permaneceram inconclusivas. Alguns avisos têm contexto dependente de tipo/estado.
 - **Externa:** cinco repositórios intencionais, com domínios e tamanhos diferentes; não representam a distribuição de apps iOS. Os demos foram construídos para as regras.
 - **Conclusão:** nenhuma estimativa de revocação; a proporção de pertinência não deve receber intervalo de confiança populacional; o mesmo corpus serviu para ajustar SAC003.
-- **Execução:** só Mäuse compilou; suas capturas cobrem a introdução, não fluxos completos. Capelo falhou por `Secrets` ausente, Expense Tracker por integração Realm; RSSBud e 100 Challenge não foram compilados. O Mac bloqueado impediu inspeção interativa; VoiceOver exige aparelho físico conforme a Apple. Sem barreira externa confirmada.
+- **Execução:** só Mäuse compilou; suas capturas cobrem introdução e Configurações, não fluxos completos. A árvore acessível do simulador mostrou rótulo e ativação de “Settings”, mas não mediu região de toque. O Accessibility Inspector não apresentou resultado de auditoria nesta sessão. Capelo falhou por `Secrets` ausente, Expense Tracker por integração Realm; RSSBud e 100 Challenge não foram compilados. VoiceOver exige aparelho físico conforme a Apple. Sem barreira externa confirmada.
 - **Utilidade:** existe instrumento, mas nenhum desenvolvedor ou especialista o respondeu. A avaliação de clareza/prioridade/correção continua pendente.
 
 ## 7. Próxima validação com a orientadora

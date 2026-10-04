@@ -39,11 +39,12 @@ Comparar contagens e localizações com [`resultados_iniciais`](resultados_inici
 
 ## Exemplos controlados e interfaces
 
-[`Demos/README.md`](../../Demos/README.md) descreve como preparar o simulador, compilar seis schemes e gerar seis relatórios. [`Reports/VALIDACAO.md`](../../Demos/Reports/VALIDACAO.md) registra a execução feita. Os builds externos foram feitos com `xcodebuild -project PROJETO.xcodeproj -scheme SCHEME -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath /Users/rafaeltoneto/Documents/TCC/AvaliacaoBuild/NOME CODE_SIGNING_ALLOWED=NO build`; o comando completo e o resultado estão no início/fim de cada [log](evidencias/). Esses diretórios de DerivedData permanecem fora do Git. Para Mäuse, as duas capturas documentam a tela de introdução em `large` e `accessibility-extra-extra-extra-large`, depois de relançar o app no simulador de iPhone 17 Pro (iOS 26.5). Inspeção por VoiceOver requer aparelho físico e não foi realizada.
+[`Demos/README.md`](../../Demos/README.md) descreve como preparar o simulador, compilar seis schemes e gerar seis relatórios. [`Reports/VALIDACAO.md`](../../Demos/Reports/VALIDACAO.md) registra a execução feita. Os builds externos foram feitos com `xcodebuild -project PROJETO.xcodeproj -scheme SCHEME -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath /Users/rafaeltoneto/Documents/TCC/AvaliacaoBuild/NOME CODE_SIGNING_ALLOWED=NO build`; o comando completo e o resultado estão no início/fim de cada [log](evidencias/). Esses diretórios de DerivedData permanecem fora do Git. Para Mäuse, as capturas documentam a introdução e as Configurações em `large` e `accessibility-extra-extra-extra-large`, depois de relançar o app no simulador de iPhone 17 Pro (iOS 26.5). Inspeção por VoiceOver requer aparelho físico e não foi realizada.
 
 Para refazer a comparação visual de Mäuse após o build, usar o mesmo simulador ou criar outro iPhone compatível. Com o simulador já iniciado, os comandos relevantes são:
 
 ```bash
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 UDID=D9DB7D76-3CCA-489B-B409-9E1506DF4746
 xcrun simctl install "$UDID" /Users/rafaeltoneto/Documents/TCC/AvaliacaoBuild/maeuse-ios/Build/Products/Debug-iphonesimulator/Maeuse.app
 xcrun simctl ui "$UDID" content_size large
@@ -56,7 +57,7 @@ xcrun simctl io "$UDID" screenshot /tmp/maeuse-max.png
 xcrun simctl ui "$UDID" content_size large
 ```
 
-Antes da captura, aguardar a tela de introdução concluir sua animação. Os comandos não navegam pelos fluxos nem medem a árvore acessível; as capturas arquivadas se referem somente à tela inicial.
+Antes da captura, aguardar a tela de introdução concluir sua animação. Para reproduzir as capturas de Configurações, tocar em `Get Started`, tocar em `Settings`, capturar com `simctl io ... screenshot` em `large`, mudar para `accessibility-extra-extra-extra-large`, encerrar/abrir o app novamente, reabrir `Settings` e capturar. A navegação foi feita no Device Hub. Nele, a árvore acessível indicou `Settings` como botão e sua ativação abriu a folha. O Accessibility Inspector foi apontado para `Simulator > Mäuse`; as opções `Element Description`, `Contrast`, `Hit Region`, `Element Detection`, `Clipped Text`, `Traits` e `Dynamic Type` estavam ativas. Acionar `Run Audit` não exibiu resultado na interface nesta sessão; não interpretar a ausência de saída como aprovação. As capturas não medem regiões de toque nem substituem VoiceOver.
 
 ## Integridade e limites da repetição
 
