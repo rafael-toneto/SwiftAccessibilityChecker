@@ -1,0 +1,41 @@
+{
+  "checkerGitHead": "07c2b1952245c2fc274fff6de7deb8a6bec36de5",
+  "sampleProtocolCommit": "b51b19f1145652a0e561bb7785e5434fc04b2ca4",
+  "date": "2026-10-04",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "swift": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx26.0",
+  "xcode": "Xcode 27.0\nBuild version 27A266a",
+  "developerDir": "/Applications/Xcode.app/Contents/Developer",
+  "projects": [
+    {
+      "id": "rssbud",
+      "exitCode": 0,
+      "analyzedFiles": 25,
+      "report": "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/docs/avaliacao/resultados_apos_ajuste/rssbud/report.json"
+    },
+    {
+      "id": "hundred-challenge-ios",
+      "exitCode": 0,
+      "analyzedFiles": 15,
+      "report": "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/docs/avaliacao/resultados_apos_ajuste/hundred-challenge-ios/report.json"
+    },
+    {
+      "id": "maeuse-ios",
+      "exitCode": 0,
+      "analyzedFiles": 25,
+      "report": "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/docs/avaliacao/resultados_apos_ajuste/maeuse-ios/report.json"
+    },
+    {
+      "id": "capelo",
+      "exitCode": 0,
+      "analyzedFiles": 23,
+      "report": "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/docs/avaliacao/resultados_apos_ajuste/capelo/report.json"
+    },
+    {
+      "id": "expense-tracker",
+      "exitCode": 0,
+      "analyzedFiles": 24,
+      "report": "/Users/rafaeltoneto/Documents/TCC/SwiftAccessibilityChecker/docs/avaliacao/resultados_apos_ajuste/expense-tracker/report.json"
+    }
+  ]
+}
