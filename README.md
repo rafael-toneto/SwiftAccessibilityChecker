@@ -74,14 +74,6 @@ validação manual. Os exemplos precisam ser adaptados ao contexto do aplicativo
 são alterações automáticas no código. Comece pela prioridade alta e confirme os avisos
 que dependem do layout ou do comportamento em execução.
 
-Use o **[guia do piloto](docs/PILOTO.md)** para testar em um projeto do time e registrar
-feedback. Os aplicativos de demonstração em `Demos` permitem comparar versões
-com problemas e corrigidas pelo painel `Reports/index.html`.
-
-A [avaliação do TCC](docs/avaliacao/RESULTADOS.md) reúne protocolo registrado antes
-da análise, cinco apps SwiftUI externos em commits fixados, relatórios brutos,
-revisão preliminar de todos os avisos, reprodução e material para o paper.
-
 ## Outros modos de uso
 
 ```bash

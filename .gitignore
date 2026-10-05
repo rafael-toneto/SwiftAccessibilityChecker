@@ -2,3 +2,6 @@
 .swiftpm/
 .DS_Store
 output/
+*.pdf
+*.xcodeproj/
+*.xcworkspace/
