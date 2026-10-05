@@ -46,8 +46,11 @@ O package usa SwiftSyntax 602.0.0, correspondente à linha da toolchain Swift 6.
 
 ## Janela para executar a análise
 
-No Finder, abra `scripts/AbrirChecker.command` para iniciar a interface. Também é
-possível iniciá-la pelo terminal, dentro da pasta deste package:
+No Finder, abra `scripts/AbrirChecker.command` uma vez. O lançador compila a interface,
+cria `~/Applications/Swift Accessibility Checker.app` fora deste repositório e abre a
+janela. Nas próximas vezes, abra o app diretamente pelo Finder. Se atualizar o código,
+execute o lançador novamente para atualizar o app instalado. Também é possível iniciar
+a interface pelo terminal, dentro da pasta deste package:
 
 ```bash
 swift run swift-accessibility-checker-gui
