@@ -12,6 +12,10 @@ let package = Package(
             name: "swift-accessibility-checker",
             targets: ["swift-accessibility-checker"]
         ),
+        .executable(
+            name: "swift-accessibility-checker-gui",
+            targets: ["swift-accessibility-checker-gui"]
+        ),
         .plugin(
             name: "SwiftAccessibilityCheckerPlugin",
             targets: ["SwiftAccessibilityCheckerPlugin"]
@@ -53,6 +57,15 @@ let package = Package(
                 "SwiftAccessibilityCheckerReporter"
             ],
             path: "Sources/SwiftAccessibilityCheckerCLI"
+        ),
+        .executableTarget(
+            name: "swift-accessibility-checker-gui",
+            dependencies: [
+                "SwiftAccessibilityCheckerAnalyzer",
+                "SwiftAccessibilityCheckerCore",
+                "SwiftAccessibilityCheckerReporter"
+            ],
+            path: "Sources/SwiftAccessibilityCheckerGUI"
         ),
         .plugin(
             name: "SwiftAccessibilityCheckerPlugin",

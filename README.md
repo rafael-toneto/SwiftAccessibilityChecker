@@ -44,6 +44,23 @@ renderizada e precisa de revisão humana.
 
 O package usa SwiftSyntax 602.0.0, correspondente à linha da toolchain Swift 6.2.
 
+## Janela para executar a análise
+
+No Finder, abra `scripts/AbrirChecker.command` para iniciar a interface. Também é
+possível iniciá-la pelo terminal, dentro da pasta deste package:
+
+```bash
+swift run swift-accessibility-checker-gui
+```
+
+Escolha a pasta dos fontes do app, clique em **Gerar relatórios** e o HTML abrirá no
+navegador. A janela mostra quantos arquivos foram analisados, quantos avisos foram
+gerados e se houve problemas de leitura. Ela lembra as pastas escolhidas recentemente.
+Os relatórios são salvos por padrão em `~/Documents/SwiftAccessibilityChecker-Relatorios`,
+em uma pasta nova para cada execução; o destino pode ser alterado na janela. Ao analisar
+um projeto externo, escolha a pasta do app para não incluir testes ou outros targets.
+Os avisos indicam trechos para revisão; a análise não confirma barreiras na interface.
+
 ## Comece pelo relatório
 
 No terminal, dentro da pasta deste package:

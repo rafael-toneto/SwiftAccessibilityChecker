@@ -25,49 +25,9 @@ enum SwiftAccessibilityCheckerCommand {
             return 64
         }
 
-        let discoverer = SwiftFileDiscoverer()
-        var discoveredFilesByPath: [String: URL] = [:]
-        var analysisIssues: [AnalysisIssue] = []
-        var hasInvalidInput = false
-
-        for inputPath in options.inputPaths {
-            do {
-                let discovery = try discoverer.discover(at: inputPath)
-                discovery.files.forEach { discoveredFilesByPath[$0.path] = $0 }
-                analysisIssues.append(contentsOf: discovery.issues.map {
-                    AnalysisIssue(filePath: $0.filePath, message: $0.message, stage: "discovery")
-                })
-            } catch {
-                hasInvalidInput = true
-                analysisIssues.append(AnalysisIssue(
-                    filePath: inputPath, message: error.localizedDescription, stage: "discovery"
-                ))
-            }
-        }
-
-        let analyzer = SwiftSourceAnalyzer()
-        var analyzedFiles: [String] = []
-        var diagnostics: [Diagnostic] = []
-        let discoveredFiles = discoveredFilesByPath.values.sorted { $0.path < $1.path }
-
-        for file in discoveredFiles {
-            do {
-                let source = try String(contentsOf: file, encoding: .utf8)
-                diagnostics.append(contentsOf: analyzer.analyze(source: source, filePath: file.path))
-                analyzedFiles.append(file.path)
-            } catch {
-                analysisIssues.append(AnalysisIssue(
-                    filePath: file.path, message: error.localizedDescription, stage: "read"
-                ))
-            }
-        }
-
-        let result = AnalysisResult(
-            inputPaths: options.inputPaths,
-            analyzedFiles: analyzedFiles,
-            diagnostics: diagnostics,
-            analysisIssues: analysisIssues
-        )
+        let run = ProjectAnalysisRunner().run(inputPaths: options.inputPaths)
+        let result = run.result
+        let discoveredFiles = run.discoveredFiles
 
         for issue in result.analysisIssues ?? [] {
             writeError("\(issue.filePath): error: Não foi possível analisar: \(issue.message)")
@@ -86,8 +46,8 @@ enum SwiftAccessibilityCheckerCommand {
             return 74
         }
 
-        if hasInvalidInput { return 66 }
-        return analysisIssues.isEmpty ? 0 : 1
+        if !run.invalidInputPaths.isEmpty { return 66 }
+        return (result.analysisIssues ?? []).isEmpty ? 0 : 1
     }
 
     private static func writeError(_ message: String) {
